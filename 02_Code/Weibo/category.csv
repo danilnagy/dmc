@@ -1,0 +1,254 @@
+category;categ_1;cate_2
+4S店;4S stores;Others
+ATM;ATM;Others
+未知分类;Unknown ;Others
+一般地点标志;Location marker;Travel
+一般景点;Attraction;Travel
+三星级宾馆;Three star hotels;Travel
+五星级宾馆;Five star hotels;Travel
+公交卡／月票代售点;Bus/Metro card;Travel
+公交车站;Bus Station;Travel
+出行住宿;Travel;Travel
+四星级宾馆;Four star hotels;Travel
+地铁站;Subway;Travel
+度假疗养场所;Vacation;Travel
+收费站;Toll stations;Travel
+旅游咨询;Tourism service;Travel
+旅馆招待所;Hostels ;Travel
+火车站;Railway station;Travel
+长途汽车票代售点;Bus tickets;Travel
+长途汽车站;Bus Station;Travel
+青年旅舍;Youth Hostel;Travel
+飞机场;Airport;Travel
+飞机票代售点;Flight tickets;Travel
+火车票代售点;Railway tickets;Travel
+经济型连锁酒店;Hotel chains;Travel
+专卖店;Stores;Shopping
+个人用品/化妆品店;Personal care;Shopping
+体育用品店;Sports shop ;Shopping
+便民商店/便利店;Shops;Shopping
+儿童用品店;Children's products;Shopping
+商场;Malls ;Shopping
+家电电子卖场;Appliances&Electronic;Shopping
+小商品市场;Commodity market;Shopping
+文化用品店;Stationary shop;Shopping
+服装鞋帽皮具店;Clothing&Leather;Shopping
+烟酒专卖店;Tobacco shops;Shopping
+特色商业街;Commercial Street;Shopping
+珠宝首饰工艺品;Jewellery;Shopping
+礼品饰品店;Gifts&Accessories;Shopping
+药店;Pharmacy;Shopping
+购物服务;Shopping&Service;Shopping
+超级市场;Supermarkets;Shopping
+音像店;Music&Video stores;Shopping
+二手车交易;Used cars;Shopping
+宠物用品店;Pet shop;Shopping
+家具建材市场;Furniture&Materials;Shopping
+旧货市场;Flea market;Shopping
+自行车专卖店;Bicycle store;Shopping
+钟表店;Watch shop;Shopping
+保龄球馆;Bowling alleys;Outdoors/Sports
+健身中心;Gym;Outdoors/Sports
+公园;Parks;Outdoors/Sports
+公园广场;Outdoors;Outdoors/Sports
+公园户外;Outdoors;Outdoors/Sports
+公园景点售票处;Attractions ticket office;Outdoors/Sports
+动物园;Zoo;Outdoors/Sports
+城市广场;Squares;Outdoors/Sports
+户外健身场所;Outdoors;Outdoors/Sports
+文化体育类公司;Culture&sports company;Outdoors/Sports
+植物园;Botanical garden;Outdoors/Sports
+海滨浴场;Beach ;Outdoors/Sports
+海滩;Beach ;Outdoors/Sports
+游泳馆;Natatorium;Outdoors/Sports
+溜冰场;Skating;Outdoors/Sports
+滑雪场;Skiing;Outdoors/Sports
+篮球场馆;Basketball;Outdoors/Sports
+综合体育馆;Gymnasium;Outdoors/Sports
+网球场;Tennis court;Outdoors/Sports
+羽毛球场;Badminton courts;Outdoors/Sports
+足球场;Football field;Outdoors/Sports
+跆拳道场馆;Taekwondo club;Outdoors/Sports
+运动场所;Sport;Outdoors/Sports
+高尔夫相关;Golf;Outdoors/Sports
+机构及其他类公司;Organization;Others
+KTV;KTV;Nightlife
+夜店;Nightclub;Nightlife
+酒吧;Bars;Nightlife
+IT类公司;IT company;Home/Work
+家居装饰类公司;Home decoration company;Home/Work
+工农贸易类公司;Trade company;Home/Work
+干洗店;Dry cleaners;Home/Work
+服装服饰类公司;Apparel company;Home/Work
+电子商务公司;E-commerce company;Home/Work
+社区服务;Community service;Home/Work
+通讯及服务类公司;Communication service companies;Home/Work
+金融服务类公司;Financial services company;Home/Work
+食品饮料类公司;Food&Drinks company;Home/Work
+上海菜;Shanghai cuisine;Food/Drinks
+东北菜;Northeast cuisine;Food/Drinks
+中式素餐馆;Vegetarian restaurants;Food/Drinks
+中餐厅;Chinese restaurants;Food/Drinks
+云贵菜;Yunnan-Guizhou dishes;Food/Drinks
+其他亚洲菜;Other Asian food;Food/Drinks
+冷饮店;Drinks;Food/Drinks
+台湾菜;Taiwanese dishes;Food/Drinks
+咖啡厅;Cafe;Food/Drinks
+四川菜;Sichuan cuisine;Food/Drinks
+墨西哥菜;Mexican food;Food/Drinks
+外国餐厅;Foreign restaurants;Food/Drinks
+安徽菜;Anhui cuisine;Food/Drinks
+巴西菜;Brazilian;Food/Drinks
+广东菜;Cantonese cuisine;Food/Drinks
+快餐厅;Fast food;Food/Drinks
+意式菜品餐厅;Italian food;Food/Drinks
+日本料理;Japanese cuisine;Food/Drinks
+江苏菜;Jiangsu cuisine;Food/Drinks
+江西菜;Jiangxi cuisine;Food/Drinks
+法式菜品餐厅;French cuisine;Food/Drinks
+泰国／越南菜品餐厅;Thai/Vietnamese;Food/Drinks
+浙江菜;Zhejiang cuisine;Food/Drinks
+海鲜酒楼;Sea food;Food/Drinks
+清真餐馆;Halal restaurants;Food/Drinks
+湖北菜;Hubei cuisine;Food/Drinks
+湖南菜;Hunan cuisine;Food/Drinks
+潮州菜;Chiu Chow;Food/Drinks
+火锅店;Hotpot;Food/Drinks
+烧烤;BBQ;Food/Drinks
+牛扒店;Steak shop;Food/Drinks
+特色／地方风味餐厅;Specialty restaurants;Food/Drinks
+甜品店;Dessert;Food/Drinks
+福建菜;Fujian cuisine;Food/Drinks
+糕饼店;Bakery;Food/Drinks
+自助;Buffet;Food/Drinks
+茶艺馆;Tea;Food/Drinks
+西北菜;Northwest cuisine;Food/Drinks
+西餐厅;Western restaurants;Food/Drinks
+韩国料理;Korean cuisine;Food/Drinks
+餐饮美食;Food;Food/Drinks
+休闲餐饮场所;Casual Dining;Food/Drinks
+北京菜;Beijing dish;Food/Drinks
+综合酒楼;Restaurant;Food/Drinks
+中学;Middle school;College/Organization
+医院;Hospital ;Others
+培训机构;Training institutions;College/Organization
+小学;Primary School ;College/Organization
+幼儿园;Kindergarten;College/Organization
+成人教育;Adult education;College/Organization
+教育出国类公司;Education abroad company;College/Organization
+文化宫;Cultural centers;College/Organization
+杂志社;Magazine;College/Organization
+校园生活;Campus ;College/Organization
+楼宇;Buildings;Others
+楼宇大门;Gate;Others
+楼宇机构;Buildings;Others
+科研机构;Research institutions;College/Organization
+职业技术学校;Vocational schools;College/Organization
+警察局;Police station;College/Organization
+邮局;Post office;College/Organization
+驾校;Driving schools;College/Organization
+高等院校;Colleges&Universities;College/Organization
+图书馆;Library;College/Organization
+报社;Newspaper's office;College/Organization
+休闲场所;Leisure venues;Art/Entertainment 
+会展中心;Convention center;Art/Entertainment 
+剧场;Theater;Art/Entertainment 
+博物馆;Museum;Art/Entertainment 
+古玩字画店;Antique calligraphy shop;Art/Entertainment 
+台球厅;Billiard hall;Art/Entertainment 
+文艺团体;Arts organizations;Art/Entertainment 
+水族馆;Aquarium;Art/Entertainment 
+照相馆;Photo studio ;Others
+生活娱乐;Life&Entertainment;Art/Entertainment 
+电影院;Cinema;Art/Entertainment 
+科技馆;Science museum;Art/Entertainment 
+纪念馆;Memorial;Art/Entertainment 
+美术馆;Art gallery;Art/Entertainment 
+音乐厅;Concert;Art/Entertainment 
+书店;Bookstores;Shopping
+产业园区;Industrial parks;Home/Work
+住宅区;Residence;Home/Work
+公司;Company ;Home/Work
+其他;Others ;Others
+售票处;Box office;Art/Entertainment 
+商务服务类公司;Business services company;Home/Work
+回教寺;Islam Temple;Travel
+国家级景点;National attractions;Travel
+垂钓园;Fishing ;Outdoors/Sports
+大门;Gate;Home/Work
+寺庙道观;Temples;Travel
+展览馆;Exhibition hall;Art/Entertainment 
+律师事务所;Law firm;Home/Work
+房地产类公司;Real estate company;Home/Work
+教堂;Church;College/Organization
+无中心点楼宇大门;Gate;Home/Work
+汽车交通类公司;Automobile&Traffic company;Home/Work
+汽车租赁;Car rent;Shopping
+汽车维修;Car repair ;Shopping
+汽车销售;Car sales;Shopping
+法院;Court;College/Organization
+洗浴推拿场所;Bath&Massage;Shopping
+消费电子类公司;Consumer Electronics Company;Home/Work
+消防;Firefighting;Others
+港口码头;Ports&Wharves;Travel
+游乐场;Playground;Outdoors/Sports
+游戏厅;Game room;Art/Entertainment 
+电台;Radio station;College/Organization
+电视台;TV station;College/Organization
+电讯营业厅;Telecom;Home/Work
+眼镜店;Optical shop;Shopping
+知名企业;Well-known enterprises;Home/Work
+网吧;Internet cafe;Art/Entertainment 
+美容美发店;Beauty salons;Shopping
+老字号;Time-honored shop;Shopping
+银行;Banks;Others
+活动;Activities;Outdoors/Sports
+诊所;Clinic;Others
+敬老院;Nursing home;College/Organization
+著名地点;Famous Place;Art/Entertainment 
+高校中心点;University Center;College/Organization
+采摘园;Garden;Outdoors/Sports
+三甲医院;Hospital;Others
+丧葬;Funeral;Others
+山东菜;Shandong Cuisine;Food/Drinks
+出版社;Press;Home/Work
+天文馆;Planetarium;Art/Entertainment 
+世界遗产;World Heritage;Art/Entertainment 
+档案馆;Archives;Art/Entertainment 
+棋牌室;Chess/checkers hall;Outdoors/Sports
+加油加气站;Gas station;Travel
+省级景点;Provincial attraction;Art/Entertainment 
+工厂;Factory;Home/Work
+内蒙菜;Inner Mongolia Vegetables;Food/Drinks
+印度风味;Indian Cuisine;Food/Drinks
+马术俱乐部;Equestrian Club;Outdoors/Sports
+高速加油站服务区;High speed gas station;Travel
+迪厅;Disco;Nightlife
+洗车场;Car wash;Travel
+医疗健康类公司;Healthcare company;Home/Work
+赛马场;Racetrack;Outdoors/Sports
+中国科学院;Chinese Academy of Science;College/Organization
+税务;Tax ;Home/Work
+化妆卫浴用品类公司;Cosmetics school;College/Organization
+政府机构;Government organization;College/Organization
+乒乓球馆;Ping pong hall;Outdoors/Sports
+美式风味;American food;Food/Drinks
+快递;Courier service;Home/Work
+地中海风格菜品;Mediterranean Cuisine;Food/Drinks
+汽车俱乐部;Auto club;Outdoors/Sports
+摄影器材店;Camera store;Shopping
+露营地;Campgrounds;Outdoors/Sports
+水上活动中心;Water sports center;Outdoors/Sports
+壁球场;Squash courts;Outdoors/Sports
+德国菜;German cuisine;Food/Drinks
+六星级宾馆;Six-star hotel;Travel
+英国式菜品餐厅;British cuisine;Food/Drinks
+停车场;Parking;Others
+葡国菜;Portuguese cuising;Food/Drinks
+轻轨站;Light Rail Station;Transportation
+维修机构;Maintenance organizations;Others
+宠物店;Pet Shop;Shopping
+赌场;Casino;Art/Entertainment
+零食;Snacks;Food/Drinks
+中国石化China Petrochemical;Others
+中石油碧辟;BP oil;Others
