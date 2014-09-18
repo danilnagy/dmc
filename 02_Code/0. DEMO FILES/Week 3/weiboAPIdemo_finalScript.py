@@ -40,7 +40,7 @@ def getEntry(data):
 
 #specify all required parameters for API call
 baseURL = "https://api.weibo.com/2/place/pois/photos.json" #specify base url of API call
-access_token = "2.00juYUmF0dYhVk4f50df99a8UEuKkD" #fill in you access token
+access_token = "XXXX" #fill in you access token
 poiid = "B2094757DA6EA4FD4092" #specify point of interest
 count = "50" #specify count (should be 50 which is the maximum per page)
 page = "1" #specify page number

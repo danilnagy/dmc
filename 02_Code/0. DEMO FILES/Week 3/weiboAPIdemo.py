@@ -1,7 +1,7 @@
 #API test code
 
 #2/place/pois/photos
-#"https://api.weibo.com/2/place/pois/photos.json?access_token=2.00juYUmF0dYhVk4f50df99a8UEuKkD&poiid=B2094757DA6EA4FD4092&count=50&page=1"
+#"https://api.weibo.com/2/place/pois/photos.json?access_token=XXXX&poiid=B2094757DA6EA4FD4092&count=50&page=1"
 
 #investigate structure of output json file
 #if necessary use external parsing tool such as the one here: http://json.parser.online.fr/
@@ -10,12 +10,12 @@
 #variable-based url generator
 
 baseURL = "https://api.weibo.com/2/place/pois/photos.json"
-access_token = "2.00juYUmF0dYhVk4f50df99a8UEuKkD"
+access_token = "XXXX"
 poiid = "B2094757DA6EA4FD4092"
 count = "50"
 page = "1"
 
-url = baseURL + "?" + "access_token=" + access_token + "&poiid=" + poiid + "&count=" + count + "&page=" + page
+url = baseURL + "?access_token=" + access_token + "&poiid=" + poiid + "&count=" + count + "&page=" + page
 print url
 
 
