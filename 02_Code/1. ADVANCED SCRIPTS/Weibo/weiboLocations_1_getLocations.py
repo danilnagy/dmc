@@ -16,42 +16,19 @@ with open( workingDirectory+fileName+fileExt, 'rb' ) as csvfile:
     for row in reader:
         data.append(row)
 
-#data = data[8500:]
+authCodeDirectory = "C:\\Users\\Danil\\Documents\\GIT\\dmc\\02_Code\\1. ADVANCED SCRIPTS\\Weibo\\"
+fileName = authCodeDirectory + "authCodes.txt"
 
-accessTokens = ("2.00Oe8rnCG3bvrCca5471c55cLiZmSB",
-"2.00Oe8rnC5_oFaCf9813055d4bxYhPD",
-"2.00Oe8rnCpd_DCD12bb182aab1YDQRD",
-"2.00FhBWDEbsi2hCa58289cd311mC6bD",
-"2.00scObXC0ICwnR09bd41b21e0SQJgk",
-"2.00Oe8rnCaG2JvC0e38bea444BonZME",
-"2.00Oe8rnCYAliJE612e6edc8e0xe7Qg",
-"2.00Oe8rnC0I_FiWe739a5364bTvJcaB",
-"2.00Oe8rnCJpLoFDd5316a36f9IcImwC",
-"2.00Oe8rnC23bgxC8d96ad7dbaULDhTB",
-"2.00Oe8rnC1MhkwB6de53faa4dmqMMND",
-"2.00kFI9gFwppZqD7a8d0cd57cid756D", #fetcho
-"2.00WdYTgF0lC74Z92e9e27742Fjf9BE", #fetcho
-"2.00hwXTgF0mqzb62fdf71880dZgVlfB", #fetcho
-"2.00aYDYgFYGZf9Da7a2531e67wA2KyC", #fetcho
-"2.00HfEYgFZbsjXB3f305b2e04AoQ7DE", #fetcho
-"2.00yvFYgFlB42XBfd98ddf6f0bY4H5B", #fetcho
-"2.00oRRZgFjYiyaB8367d184d50W_hj3", #fetcho
-"2.00n1HYgFVYSoeD2ec7f5fdb5dK8olC", #fetcho
-"2.00MwxWgF8MkYDD3a2c474670K_zMtD", #fetcho
-"2.00dxIYgF0AkoCc852244291eWGoyJE", #fetcho
-"2.00iI7ZgFOEnO4D72e055314d3c1msC", #fetcho
-"2.00fiPYgFlIpsDC5c6cb6a2910xX5nY", #fetcho
-"2.00g8FXgF4JV3VB4e71d25b33KIBy4B", #fetcho
-"2.007GGXgFmekRkC0332e52313xfvAGD", #fetcho
-"2.00NIJXgFfVZFuB75d40f65de0MF9Gr", #fetcho
-"2.00Q4UagFMi2dyDc5506f2c1708WLlw", #fetcho
-"2.002SCdgFkanLZC5a38d96a5eCnKBcC", #fetcho
-"2.00g7jggF8Q66QE246be290a3UFQOLC", #fetcho
-"2.009BafgFXkzLlC9cce59ff287N3UUD", #fetcho
-"2.00M3kggF0roYO4808b32662c0q5WiG", #fetcho
-"2.00nx6egFUY8RCC0cbd110ff4gXtDIC", #fetcho
-"2.005S9ZgFilzN_Ca950937ea0S8tAhD", #fetcho
-"2.00elXUgF0IVe_vfa28588d0ehAfsfB") #tianran
+#GET ACCESS TOKENS FROM FILE
+accessTokens = []
+
+with open( fileName, 'rb' ) as f:
+    data = f.read()
+    codes = data.split("\n")
+    
+    for code in codes:
+        accessTokens.append( code.strip() )
+    
 
 ### FUNCTIONS ###
 
