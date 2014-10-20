@@ -14,16 +14,16 @@ def fetch(url):
     
     time.sleep(1)
     return data.decode('gbk')
-'''  
+
 page = fetch(baseURL)
 
 #print page
 
 
 #parse HTML structure using Beautiful Soup
-'''
+
 from bs4 import BeautifulSoup
-'''
+
 soup = BeautifulSoup(page)
 
 #show where to locate identifiers in Chrome
@@ -53,84 +53,3 @@ for listing in listings:
     price = listing.findChildren('span', 'price')[0].string.strip() #name
     
     print "name: " + name + "; price: " + price
-'''
-
-#generating new URL with filtering to reduce total listings below maximum pages allowed
-
-baseURL = "http://zu.sz.fang.com/house/c2{0}-d2{1}/" #click through website to show changing format
-newURL = baseURL.format(0, 250) #build new url from format
-print newURL
-
-
-#getting new number of listings in filtered set
-
-page = fetch(newURL)
-soup = BeautifulSoup(page)
-
-items = soup.findAll('span','org bold')[0].string.strip() #final query
-print "number of listing in filtered selection: " + items
-
-
-#calculating number of pages
-
-import math
-
-listingsPerPage = 36
-numPages = int(math.ceil(float(items) / listingsPerPage))
-
-print "number of pages in filtered selection: " + str(numPages)
-
-
-#looping through pages and building dynamic url addresses
-
-baseURL = "http://zu.sz.fang.com/house/c2{0}-d2{1}-i3{2}/" #click on next pages to show url structure
-'''
-for i in range(numPages):
-    newURL = baseURL.format(0, 250, i+1) #remember i starts at 0
-    
-    page = fetch(newURL)
-    soup = BeautifulSoup(page)
-    
-    listings = soup.find('div', 'houseList').findAll('dl')
-    print "number of listing on page: " + str(len(listings))
-    
-    for listing in listings:
-        name = listing.findChildren('p', 'title')[0].findChildren()[0].string.strip() #name
-        price = listing.findChildren('span', 'price')[0].string.strip() #name
-        
-        print "name: " + name + "; price: " + price
-'''    
-        
-#export data to file
-
-workingDirectory = "C:\\Users\\Danil\\Documents\\Teaching\\DMC\\Fall, 2014\\Week 3\\demo\\"
-fileName = workingDirectory + "data_soufun.txt"
-
-delim = ";"
-
-with open( fileName, 'wb' ) as f:
-    
-    f.write(delim.join(["name", "price"]) + "\n")
-
-    
-    for i in range(numPages):
-        newURL = baseURL.format(0, 250, i+1) #remember i starts at 0
-        
-        page = fetch(newURL)
-        soup = BeautifulSoup(page)
-        
-        listings = soup.find('div', 'houseList').findAll('dl')
-        print "number of listing on page: " + str(len(listings))
-        
-        for listing in listings:
-            name = listing.findChildren('p', 'title')[0].findChildren()[0].string.strip() #name
-            price = listing.findChildren('span', 'price')[0].string.strip() #name
-            
-            entry = delim.join([name, price]) + "\n"
-            f.write( entry.encode('utf-8') )
-
-
-
-
-
-
