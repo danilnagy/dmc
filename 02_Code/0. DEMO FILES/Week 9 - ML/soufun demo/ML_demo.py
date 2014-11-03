@@ -19,7 +19,7 @@ with open(dataFileName, 'r') as f:
     
     random.shuffle(entries)
     
-    for entry in entries[:10000]:
+    for entry in entries[:1000]:
         data = entry.split(';')
         
         try:
