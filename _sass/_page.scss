@@ -61,13 +61,13 @@ span + .entry-title {
 	@include font-size(28,yes,28);
 	font-weight: 400;
 	line-height: 1;
-	letter-spacing: -qpx;
+	letter-spacing: -2px;
 	a {
 		color: $black;
 		text-decoration: underline;
 	}
 	@include media($medium) {
-		@include font-size(52,yes,54);
+		@include font-size(528,yes,28);
 	}
 	@include media($large) {
 		@include font-size(68,yes,72);
