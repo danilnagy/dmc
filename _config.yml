@@ -1,8 +1,8 @@
 # Site wide configuration
 
-title: Site Title
+title: Data Mining the City
 locale: en_US
-description: Describe your website here.
+description: Companion site to Data Mining the City class taught by Danil Nagy in the Graduate School of Architecture, Planning, and Preservation (GSAPP) at Columbia University, New York.
 logo: site-logo.png
 search: true
 url: http://danilnagy.github.io/dmc
