@@ -101,8 +101,8 @@ var b = arr.map(x => x * x);
 console.log(b);
 ```
 
-{% highlight ruby %}
+{% highlight python linenos%}
+#python
 def foo
-  puts 'foo'
-end
+  return 'foo'
 {% endhighlight %}
