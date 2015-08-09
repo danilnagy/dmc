@@ -27,6 +27,15 @@ main {
         }
     }
 }
+
+.site-footer {
+    > p{
+        color: $meta-color;
+        font-size: $small-font-size;
+    }
+    
+}
+
 .posts {
     list-style: none;
     padding: 0;
