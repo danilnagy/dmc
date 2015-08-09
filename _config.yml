@@ -7,6 +7,8 @@ logo: site-logo.png
 search: true
 url: http://danilnagy.github.io/dmc
 
+comments: true
+
 # Jekyll configuration
 
 permalink:   /:categories/:title/
@@ -34,7 +36,7 @@ owner:
   name: Your Name
   avatar: bio-photo.jpg
   email: you@email.com
-  disqus-shortname:
+  disqus-shortname: datamining
   twitter: #username
   facebook: #username
   github: #username
