@@ -1,10 +1,10 @@
 title: Vida
-baseurl: ""
+baseurl: "http://danilnagy.github.io/dmc/"
 
 date_format: "%Y-%m-%d"
 
 google_analytics:
-disqus_shortname:
+disqus_shortname: datamining
 
 # Build settings
 markdown:     redcarpet
