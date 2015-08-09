@@ -94,7 +94,7 @@ First of all, let's have a glance at the basic styles: [link](http://github.com/
 
 Here are an ES6 code segment, in which `x => x * x` defines a function:
 
-```python
+```
 #python
 var arr = [1, 2, 3, 4, 5];
 var b = arr.map(x => x * x);
