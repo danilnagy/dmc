@@ -5,7 +5,7 @@ layout: default
 <div class="home">
     <ul class="posts">
         {% for post in site.posts reversed %}
-        <li><span>{{ post.date | date: site.date_format }}</span><a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>{% if post.tags.size > 0 %} <em>[{{ post.tags }}]</em>{% endif %}</li>
+        <li><span>{{ post.date | date: site.date_format }}</span><a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>{% if post.tags.size > 0 %} <em>[{{ post.tags.size }}]</em>{% endif %}</li>
         {% endfor %}
     </ul>
 </div>
