@@ -11,6 +11,7 @@
         <header class="site-header">
             <h1 class="site-title"><a href="{{ site.baseurl }}/">{{ site.title }}</a></h1>
             <nav class="site-nav">
+                <a href="{{ site.baseurl }}" class="{% if page.url == '/' %}active{% endif %}">Tutorials</a>
                 <a href="{{ site.baseurl }}/docs/" class="{% if page.url == '/docs/' %}active{% endif %}">Docs</a>
                 <a href="{{ site.baseurl }}/about/" class="{% if page.url == '/about/' %}active{% endif %}">About</a>
                 <a href="https://github.com/danilnagy/dmc" target="_blank">Github</a>
