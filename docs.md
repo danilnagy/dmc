@@ -4,4 +4,4 @@ title:     Documents
 permalink: /docs/
 ---
 
-[Syllabus](http://goo.gl/CPlOcp)
+<a href="http://goo.gl/CPlOcp" target="_blank">Syllabus</a>
