@@ -1,7 +1,7 @@
 ---
 layout:    page
 title:     Documents
-permalink: /Docs/
+permalink: /docs/
 ---
 
 [Syllabus]("http://goo.gl/CPlOcp")
