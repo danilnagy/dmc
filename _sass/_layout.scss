@@ -53,6 +53,10 @@ main {
                 border-bottom: 2px solid #666;
             }
         }
+        em {
+            color: $meta-color;
+            font-size: $small-font-size;
+        }
     }
 }
 .post {
