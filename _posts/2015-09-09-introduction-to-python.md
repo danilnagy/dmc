@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  Introduction to Python
-date:   2015-08-09 02:00:00
+date:   2015-09-09 02:00:00
 ---
 
 Data Mining the City uses the Python language. Python is great stuff.
