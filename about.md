@@ -4,8 +4,8 @@ title:     About
 permalink: /about/
 ---
 
-Vida is a minimalist jekyll theme.
+This is the companion site to the Data Mining the City class taught at the Graduate School of Architecture, Planning, and Preservation (GSAPP) at Columbia University in New York City.
 
-- Author: Alex Sun
-- Email:  syaningv@gmail.com
-- Github: [https://github.com/syaning/vida](https://github.com/syaning/vida)
+- Professor: Danil Nagy
+- Email:  dn2216 (at) columbia (dot) edu
+- Github: [https://github.com/danilnagy/dmc](https://github.com/danilnagy/dmc)
