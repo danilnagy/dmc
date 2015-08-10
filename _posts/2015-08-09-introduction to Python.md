@@ -7,9 +7,9 @@ date:   2015-08-09 00:00:00
 Data Mining the City uses the Python language. Python is great stuff.
 
 Benefits of Python:
-* modern
-* easy to learn
-* flexible and universal
+- list item 1
+- list item 2
+- list item 3
 
 ### Installation:
 
