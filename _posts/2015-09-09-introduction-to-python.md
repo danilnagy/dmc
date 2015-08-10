@@ -4,7 +4,6 @@ title:  Introduction to Python
 date:   2015-09-09 02:00:00
 tags:
 - python
-- other
 ---
 
 Data Mining the City uses the Python language. Python is great stuff.
