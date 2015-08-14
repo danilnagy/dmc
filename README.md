@@ -1,9 +1,4 @@
-vida
+[datamining.city](datamining.city) class site.
 ---------
 
-vida is a simple and beautiful jekyll theme.
-You can see demo [here](http://syaningv.com/vida/).
-
-### License
-
-MIT
+based on [vida](https://github.com/syaning/vida) jekyll theme.
