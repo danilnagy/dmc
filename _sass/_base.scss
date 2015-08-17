@@ -1,12 +1,10 @@
 @charset "utf-8";
 body {
     margin: 0;
-    height: 100%;
     font-family: $base-font-family;
     font-size: $base-font-size;
     line-height: $base-line-height;
     color: $text-color;
-    background-color: #000;
 }
 p {
     text-align: justify;
