@@ -73,6 +73,11 @@ main {
         font-size: $small-font-size;
     }
 }
+.date {
+    width: 30px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
 @media screen and (max-width: 48rem) {
     .site-header {
         .site-title,
