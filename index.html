@@ -5,7 +5,7 @@ layout: default
 <div class="home">
     <ul class="posts">
         {% for post in site.posts reversed %}
-        <li><table><tr><td class="title">
+        <li><table><tr><td class="date">
             <span>{{ post.date | date: site.date_format }}</span>
             </td>
             <td>
