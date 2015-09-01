@@ -89,7 +89,7 @@ Once you have navigated to the folder, type in 'python pythonTest.py'. This will
 
 To make your life easier in the command line, you can hit Shift to try to autocomplete certain pieces of text, and hit the up arrow to call up the last command executed.
 
-This concludes our basic overview of the Python environment. Next, we will start to get familiar with Python code by going over some of the major elements of computer programming.
+This concludes our basic overview of the Python environment. Next, we will start to get familiar with writing Python code by going over some of the major elements of computer programming.
 
 
 
