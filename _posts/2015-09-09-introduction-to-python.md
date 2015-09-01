@@ -56,6 +56,8 @@ In fact, Python behaves the same exact way whether we work with it from within t
 exit()
 ```
 
+### Writing Scripts
+
 So either of these methods work great for experimenting with Python commands, but there is only so much you can do by typing one command at a time. The real power of writing code is developing complex procedures over many lines of code, and then feeding it into the interpreter all at once. For this we want to write the code within a text file, and then feed that file to the interpreter. Once the interpreter gets the file, it will read it line by line, executing each line as it goes. There are again two ways to accomplish this, using the Canopy interface, and directly in the command prompt.
 
 To create a new file in Canopy, click the 'Create a new file' button on the top toolbar:
@@ -87,7 +89,7 @@ Once you have navigated to the folder, type in 'python pythonTest.py'. This will
 
 To make your life easier in the command line, you can hit Shift to try to autocomplete certain pieces of text, and hit the up arrow to call up the last command executed.
 
-### Programming Basics
+This concludes our basic overview of the Python environment. Next, we will start to get familiar with Python code by going over some of the major elements of computer programming.
 
 
 
