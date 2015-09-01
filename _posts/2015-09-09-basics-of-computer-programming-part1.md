@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  The Basics of Computer Programming
+title:  The Basics of Computer Programming Part 1: Variables
 date:   2015-09-09 03:00:00
 tags:
 - python
