@@ -38,8 +38,8 @@ Once the installer is downloaded, click on it and follow the installation instru
 
 Once Canopy is set up, there are basically two ways for you to start interacting with Python. The more intuitive way starting out is to use the Canopy distribution Editor, which you can access by clicking on the Editor button in the main Canopy Screen. Once there you can start typing Python commands directly into the window on the bottom and get instant feedback from the Python interpreter. Try typing this line into the box after the the text 'In [1]:'
 
-```
-#python
+
+```python
 In [1]: print 'Hello Python'
 ```
 
