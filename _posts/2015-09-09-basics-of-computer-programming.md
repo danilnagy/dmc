@@ -54,8 +54,8 @@ It is also common to substitute underscores ('_') for spaces in variable names. 
 
 Variables can hold data of different types. Although Python does not make you explicitly declare the type of data you will be using, it is important to know the types because they will each behave differently in your code. Although there are many different types of data supported by Python, the most common are:
 
-- int (whole number)
-- float (decimal number)
+- int (means integer, or a whole number)
+- float (means floating point, or decimal number)
 - bool (means boolean, or a True/False)
 - str (means string, or 'a piece of text')
 
@@ -65,10 +65,59 @@ In Python you can use the type() function to get the type for any piece of data.
 print type(12)
 print type(12.1)
 print type(True)
-print type('text')
+print type('blueberries')
 ```
 
-you can see that it prints the four types described above. Notice also the particular way in which the data must be written so that Python does not confuse it with the name of a variable. Number can be written directly because you cannot name variables with only a number. Booleans must be written capitalized (True or False) as these are reserved key words in Python (notice the syntax coloring). Strings are always contained within quotes. You can use single (') or double (") quotes, but they must match on either side of the string.
+you can see that it prints the four types described above. Notice also the particular way in which the data must be written so that Python does not confuse it with the name of a variable. Number can be written directly because you cannot name variables with only a number. Booleans must be written capitalized (True or False) as these are reserved key words in Python (notice the syntax coloring). Strings are always contained within quotes. You can use single (') or double (") quotes, but they must match on either side of the string. If you try to write
+
+```python
+print type(blueberries)
+```
+
+without the quotes, you will get the following error:
+
+```python
+NameError: name 'blueberries' is not defined 
+```
+
+telling you that the name 'blueberries' is not defined as a variable. However, if you write
+
+```python
+blueberries = 5
+print type(blueberries)
+```
+
+it will tell you it's an int beause 'blueberries' is now a variable with an int stored inside of it.
+
+In Python, many operators are 'over-loaded', which means that they function differently depending on the data structure that they are used on. For instance, if we type
+
+```python
+print 2 + 2
+```
+
+we get '4'. When given two numbers, the '+' operator performs arithmetic addition. However, if we type
+
+```python
+print 'First ' + 'Last'
+```
+
+we get 'First Last'. When given two strings, the '+' operator 'concatenates' or merges them together into one string. Over-loading is useful because it produces clean and readable code without having a special function for each type of variable. You have to be careful, however, because mismatching different types of variable can lead to errors. For instance, this line
+
+```python
+numBerries = 5
+print 'Number of Blueberries: ' + numBerries
+```
+
+will produce an error because it is trying to perform a concatenation of a string and an integer. Instead, you can use the int() function to convert the 5 to a string before using it with the '+' operator.
+
+```python
+numBerries = 5
+print 'Number of Blueberries: ' + str(numBerries)
+```
+
+## Multi-part variables
+
+sdfsdf
 
 ### 2. Conditionals
 
