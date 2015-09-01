@@ -50,7 +50,11 @@ Another less intuitive but in the end more useful way to interact with Python is
 
 ![GitHub account](/dmc/images/canopy04.png)
 
-In fact, Python behaves the same exact way whether we work with it from within the Canopy interface or directly from the command line. This is because Python is actually running in the background in both cases, and is not really tied to Canopy. All Canopy is doing is providing a friendly user interface for writing and exectuting code, and facilitating the installation and organization of external libraries, which we will get to shortly.
+In fact, Python behaves the same exact way whether we work with it from within the Canopy interface or directly from the command line. This is because Python is actually running in the background in both cases, and is not really tied to Canopy. All Canopy is doing is providing a friendly user interface for writing and exectuting code, and facilitating the installation and organization of external libraries, which we will get to shortly. You can shut down the interpreter and return to the command line any time by typing in the command 
+
+```python
+exit()
+```
 
 So either of these methods work great for experimenting with Python commands, but there is only so much you can do by typing one command at a time. The real power of writing code is developing complex procedures over many lines of code, and then feeding it into the interpreter all at once. For this we want to write the code within a text file, and then feed that file to the interpreter. Once the interpreter gets the file, it will read it line by line, executing each line as it goes. There are again two ways to accomplish this, using the Canopy interface, and directly in the command prompt.
 
@@ -71,7 +75,17 @@ Now hit the green arrow icon to run the code through the interpreter.
 
 This time the interpreter received the whole script at once (a file containing a sequence of lines of code is commonly referred as a script) and executed each line in order, first printing out 'Hello Python', and then printing out 'Hello again'. You can see that canopy has given the script a temporary name, since all scripts have to be saved to the disk before being executed. As you are working on your own scripts make sure to save your work by clicking the save icon on the toolbar and giving it a name ending in '.py'. This file extension is no different than any text file extension such as '.txt', but lets the text editor know that you are working in Python code so that it can do proper text highlighting. This highlighting will make it easier to work with code and help you spot mistakes along the way.
 
+You can also work with script directly from the command line by saving them as '.py' files on your harddrive, and executing them with python. To start, open up your favorite text editor (I use [Sublime](http://www.sublimetext.com/) which has great syntax highlighting and editing tools). Paste the same two lines of code from above, and save the file as 'pythonTest.py' somewhere on your computer. You can see that as soon as you give it a '.py' extension, Sublime automatically recognizes it as a Python file and starts to hightlight the syntax appropriately. 
 
+![GitHub account](/dmc/images/canopy07.png)
+
+Now open a command prompt, and navigate to the folder where you saved the file. How you do this varies by operating system, but you can Search for basic tutorials and lists of commands for both [Windows](http://www.7tutorials.com/command-prompt-how-use-basic-commands) and [Mac/Linux](http://www.dummies.com/how-to/content/how-to-use-basic-unix-commands-to-work-in-terminal.html). A nice shortcut in Windows is to go to the directory you want to work in and [Shift+right-click](http://lifehacker.com/5804483/open-hidden-menu-options-with-the-shift-and-right-click-shortcut?utm_expid=66866090-48.Ej9760cOTJCPS_Bq4mjoww.0&utm_referrer=https%3A%2F%2Fwww.google.com%2F) anywhere in the directory. This will give you advanced options, including to open a command prompt already navigated to that folder.
+
+Once you have navigated to the folder, type in 'python pythonTest.py'. This will launch the Python interpreter and process all the code in the 'pythonTest.py' file. Notice in this case there is no line that starts with '>>>', meaning there is not instance the interpreter running to interact with. The interpreter only launches to read the file, executes every line, and then exists automatically with the code is processed. 
+
+![GitHub account](/dmc/images/canopy07.png)
+
+To make your life easier in the command line, you can hit Shift to try to autocomplete certain pieces of text, and hit the up arrow to call up the last command executed.
 
 ### Programming Basics
 
