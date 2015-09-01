@@ -43,4 +43,5 @@ Click on this repository, which will take you to [it's page](https://github.com/
 
 ![GitHub account](/dmc/images/github03.png)
 
-This will create a copy of the repository on your own Github account, to which you can make changes.
+This will create a copy of the repository on your own Github account, to which you can make changes. Now, let's download and install the Github client, so you can clone the repository to your local computer and make changes to the files locally. Go here: https://desktop.github.com/ to download the client and follow the instructions to install it. I will use the windows version, but it works in a similar way for both Mac and Linux.
+
