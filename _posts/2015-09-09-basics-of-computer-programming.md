@@ -17,13 +17,42 @@ Here we come to our first bit of Python syntax, the all important comment. You s
 print 'this is code' #this is also a comment
 ```
 
-If you run this code through the interpreter, you can see that it prints 'this is code' because it executes the line "print 'this is code'". Meanwhile it ignores both comments occuring after the '#' symbol. Although every language denotes them differently, comments are an important part of every programming language, as they allow the developer to add extra information and description to their code which is not strictly related to its execution.
+If you run this code through the interpreter, you can see that it prints out 'this is code' because it executes the line "print 'this is code'". Meanwhile it ignores both comments occuring after the '#' symbol. Although every language denotes them differently, comments are an important part of every programming language, as they allow the developer to add extra information and description to their code which is not strictly related to its execution.
 
 Now that we know the basics, let's dive into the 5 fundamental elements of any computer program:
 
 ### 1. Variables
 
-You can think of 
+You can think of variables as containers that store some form of data. You can use variables in Python to store pieces of information, and then later recall them when you need them. Variables can be declared and assigned freely in Python, as opposed to other languages where you have to explicitly state the kind of data they will be storing. To assign a value to a variable, use the '=' operator:
+
+```python
+a = 2
+```
+
+Here, 'a' is the name of my variable, and the number '2' is the data I am assigning it. From here on out, 'a' will be associated with the number '2', until it is assigned another value, or the program ends. Try this code:
+
+```python
+a = 1
+b = 2
+print a + b
+```
+
+This should print out the number 3, since 'a' is storing the number '1', and 'b' is storing the number '2'. You can use many other common arithmetic operators in the same way. Some of the most common are:
+
+- + 	addition
+- - 	subtraction
+- * 	multiplication
+- / 	division
+- ** 	raise to a power
+- % 	modulo
+
+In Python, you can name your variables anything, as long as it starts with a letter, does not contain spaces, and is not a reserved keyword (such as 'print'). In practice, to enhance readability most programmers follow some conventions for naming variables. One common approach is to use 'camel case' to make variables composed of multiple words readable without spaces.
+
+withCamelCaseTheFirstWordIsLowerCaseWhileAllSubsequentWordsAreUpperCase
+
+It is also common to substitute underscores ('_') for spaces in variable names. In general, variable names should not be too long, but should err on the side of decription rather than brevity to facilitate the code's readability. For instance, if you are keeping track of the number of blueberries, it is better to call the variable 'numBlueberries' than simply 'n' or 'b'. 
+
+
 
 ### 2. Conditionals
 
