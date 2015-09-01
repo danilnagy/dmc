@@ -21,7 +21,7 @@ If you run this code through the interpreter, you can see that it prints out 'th
 
 Now that we know the basics, let's dive into the 5 fundamental elements of any computer program:
 
-### 1. Variables
+## 1. Variables
 
 You can think of variables as containers that store some form of data. You can use variables in Python to store pieces of information, and then later recall them when you need them. Variables can be declared and assigned freely in Python, as opposed to other languages where you have to explicitly state the kind of data they will be storing. To assign a value to a variable, use the '=' operator:
 
@@ -76,7 +76,7 @@ print type(blueberries)
 
 without the quotes, you will get the following error:
 
-```python
+```
 NameError: name 'blueberries' is not defined 
 ```
 
@@ -115,20 +115,124 @@ numBerries = 5
 print 'Number of Blueberries: ' + str(numBerries)
 ```
 
-## Multi-part variables
+### Multi-part variables
 
-sdfsdf
+In addition to storing single pieces of data, you can also use variables to store many pieces of data, and then access them in a structured way. There are two basic types of multi-part variables:
 
-### 2. Conditionals
+- lists (also called arrays) and
+- dictionaries (also called key-value pairs)
+
+A list can be created by using square brackets, and separating individual elements by commas like so:
+
+```python
+numbers = [1, 2, 3, 4, 5]
+fruits = ['apples', 'oranges', 'bananas']
+```
+
+To retrieve an object from such a list, you once again use square brackets, but this time appended to the end of the variable name. Inside the brackets you place the index or place of the piece of data you want. For instance:
+
+```python
+numbers = [1, 2, 3, 4, 5]
+print numbers[0]
+
+fruits = ['apples', 'oranges', 'bananas']
+print fruits[1]
+```
+
+Notice that like in all languages, counting begins with '0', so if you want the first item in a list you use [0], the second item [1], and so on. Unlike many other languages, Python will allow you to mix different types of data within a single list, so something like this is perfectly legal:
+
+```python
+fruitsAndNubers = ['apples', 2, 'bananas']
+print type(fruitsAndNubers)
+print type(fruitsAndNubers[0])
+print type(fruitsAndNubers[1])
+```
+
+You can also use a ':' within the square brackets to obtain a range of values from a list, which will form a new list:
+
+```python
+numbers = [1, 2, 3, 4, 5]
+newNumbers = numbers[0:3] # [index of first item:index after last item]
+print newNumbers
+```
+
+You can even index backwards using negative indeces. For instance, this will print out the last item in the list:
+
+```python
+numbers = [1, 2, 3, 4, 5]
+print numbers[-1]
+```
+
+Various functions exist to help you work with lists. The most common is .append(), which adds a value to the end of a list:
+
+```python
+numbers = [1, 2, 3, 4, 5]
+numbers.append(6)
+print numbers
+```
+
+You can even start with an empty list, and fill it gradually with appends:
+
+```python
+numbers = []
+numbers.append(1)
+numbers.append(2)
+print numbers
+```
+
+For other list functions you can refer to the [Python documentation](https://docs.python.org/2/tutorial/datastructures.html#more-on-lists).
+
+Lists are extremely useful for storing multiple pieces of data within a specifc sequence. However, sometimes you want to be able to recall a piece of data without knowing its exact position in a list. For this you can use dictionaries. Dictionaries store multiple pieces of data by tying them to unique keys. You can then use the keys to recall the data. For this reason, dictionaries are often called *key-value pairs*.
+
+To create a dictionary, you use curly braces, separating keys and values with ':', and multiple entries with ',':
+
+```python
+dict = {'a': 1, 'b': 2, 'c': 3}
+```
+
+In this dictionary, the integers 1, 2, and 3 are tied to their unique keys, 'a', 'b', and 'c'. Note that keys must be strings, while values can be any data type. To retrieve a piece of data from this dictionary, I can again use the square bracket notation, this time passing in a key instead of an index:
+
+```python
+dict = {'a': 1, 'b': 2, 'c': 3}
+print dict['a']
+```
+
+To add entries to a dictionary, you just have to specify the data that relates to a particular key using the same square bracket syntax:
+
+```python
+dict = {'a': 1, 'b': 2, 'c': 3}
+dict['d'] = 4
+print dict['d']
+```
+
+As with lists, you can start with an empty dictionary and build it up over time:
+
+```python
+dict = {}
+dict['a'] = 1
+dict['b'] = 2
+print dict
+```
+
+There are also many useful functions for working with dictionaries, including the .keys() function which returns a list of all of the dictionary's keys:
+
+```python
+dict = {'a': 1, 'b': 2, 'c': 3}
+print dict.keys()
+```
+
+For other useful functions you can refer to the proper place in [the documentation](https://docs.python.org/2/tutorial/datastructures.html#dictionaries).
+
+## 2. Conditionals
 
 
 
-### 3. Loops
+## 3. Loops
 
 
 
-### 4. Functions
+## 4. Functions
 
+We have already covered some function such as type(), str(), and .append()
 
-
-### 5. Objects
+## 5. Objects
