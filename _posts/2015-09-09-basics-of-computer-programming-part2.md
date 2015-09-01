@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  The Basics of Computer Programming Part 2: Conditionals and Loops
+title:  The Basics of Computer Programming Part 2 - Conditionals and Loops
 date:   2015-09-09 04:00:00
 tags:
 - python
