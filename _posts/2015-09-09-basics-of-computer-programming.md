@@ -32,19 +32,19 @@ a = 2
 Here, 'a' is the name of my variable, and the number '2' is the data I am assigning it. From here on out, 'a' will be associated with the number '2', until it is assigned another value, or the program ends. Try this code:
 
 ```python
-a = 1
-b = 2
+a = 2
+b = 3
 print a + b
 ```
 
-This should print out the number 3, since 'a' is storing the number '1', and 'b' is storing the number '2'. You can use many other common arithmetic operators in the same way. Some of the most common are:
+This should print out the number 5, since 'a' is storing the number '2', and 'b' is storing the number '3'. You can use many other common arithmetic operators in the same way. Some of the most common are:
 
-- + 	addition
-- - 	subtraction
-- * 	multiplication
-- / 	division
-- ** 	raise to a power
-- % 	modulo
+- + (addition)
+- - (subtraction)
+- * (multiplication)
+- / (division)
+- ** (raise to a power)
+- % (modulo)
 
 In Python, you can name your variables anything, as long as it starts with a letter, does not contain spaces, and is not a reserved keyword (such as 'print'). In practice, to enhance readability most programmers follow some conventions for naming variables. One common approach is to use 'camel case' to make variables composed of multiple words readable without spaces.
 
@@ -52,7 +52,23 @@ withCamelCaseTheFirstWordIsLowerCaseWhileAllSubsequentWordsAreUpperCase
 
 It is also common to substitute underscores ('_') for spaces in variable names. In general, variable names should not be too long, but should err on the side of decription rather than brevity to facilitate the code's readability. For instance, if you are keeping track of the number of blueberries, it is better to call the variable 'numBlueberries' than simply 'n' or 'b'. 
 
+Variables can hold data of different types. Although Python does not make you explicitly declare the type of data you will be using, it is important to know the types because they will each behave differently in your code. Although there are many different types of data supported by Python, the most common are:
 
+- int (whole number)
+- float (decimal number)
+- bool (means boolean, or a True/False)
+- str (means string, or 'a piece of text')
+
+In Python you can use the type() function to get the type for any piece of data. Try to run the following code:
+
+```python
+print type(12)
+print type(12.1)
+print type(True)
+print type('text')
+```
+
+you can see that it prints the four types described above. Notice also the particular way in which the data must be written so that Python does not confuse it with the name of a variable. Number can be written directly because you cannot name variables with only a number. Booleans must be written capitalized (True or False) as these are reserved key words in Python (notice the syntax coloring). Strings are always contained within quotes. You can use single (') or double (") quotes, but they must match on either side of the string.
 
 ### 2. Conditionals
 
