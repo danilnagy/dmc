@@ -32,8 +32,18 @@ Once you have your account, go to (https://store.enthought.com/#canopy-academic)
 
 After you get the acedmic license, you should be able to go to your account settings, and on the right side of the page click on 'Downloads'. This will allow you to chose your operating system and download the complete 'Canopy Subscriber' package. For the purposes of this class either the 64-bit or 32-bit package will work. While 64-bit is faster at some tasks, it is not reverse compatible with some libraries, but this should not affect anything in these tutorials.
 
-Once the installer is downloaded, click on it and follow the installation instructions. Depending on your operating system you can choose to install either for a single user or all users. Choose according to your preference, it does not affect the rest of the tutorials. At the end of the installation, click the checkbox to start Canopy. As Canopy is starting for the first time, it will configure your new Python environment. Most of this should be automatic, but if it asks you whether you want the Canopy distribution to be your default environment, or whether it should add any environment variables, you should choose yes.
+Once the installer is downloaded, click on it and follow the installation instructions. Depending on your operating system you can choose to install either for a single user or all users. Choose according to your preference, it does not affect the rest of the tutorials. At the end of the installation, click the checkbox to start Canopy. As Canopy is starting for the first time, it will configure your new Python environment. Most of this should be automatic, but if it asks you whether you want the Canopy distribution to be your default environment, or whether it should add any environment variables, you should choose *yes*.
 
+### The Python Environment
+
+Once Canopy is set up, there are basically two ways for you to start interacting with Python. The more intuitive way starting out is to use the Canopy distribution Editor, which you can access by clicking on the Editor button in the main Canopy Screen. Once there you can start typing Python commands directly into the window on the bottom and get instant feedback from the Python interpreter. Try typing this line into the box after the the text 'In [1]:'
+
+```
+#python
+In [1]: print 'Hello Python'
+```
+
+![GitHub account](/dmc/images/canopy03.png)
 
 
 ### Programming Basics
@@ -42,7 +52,4 @@ Once the installer is downloaded, click on it and follow the installation instru
 
 
 
-```
-#python
-test
-```
+
