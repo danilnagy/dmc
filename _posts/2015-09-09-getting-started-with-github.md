@@ -26,4 +26,21 @@ To get started, go to https://github.com/ and sign up for a free account:
 
 ![GitHub account](/dmc/images/github01.png)
 
-aasd
+Then go to: https://github.com/data-mining-the-city/
+
+This is the main page for all of the lab assignments for the class. Here you will find a separate repository for each week's assignment, which will include the starting code for that week. The process for completing and turning in assignments is:
+
+1. Each week, fork the repository for that week into your own account. You can fork all the repositories at once, or do it before starting each week's labs. Be aware that there might be changes made to later weeks, so make sure to sync all changes from the main project before starting the lab.
+2. Clone your fork of the repository onto your local desktop.
+3. Work on the code locally as you complete the labs. Feel free to make commits to your fork as you work to keep track of your changes as you see fit. I recommend coming up with your own committing system to keep track of major changes, but this will not effect your completion of the assigment.
+4. Once you have finished the week's lab, submit a pull request back to the main project (data-mining-the-city) asking to merge all code. I will then review your code changes, and make comments and ask for revisions within the pull request comments section.
+
+To test out this workflow, let's go through an example. On the [data-mining-the-city Github site](https://github.com/data-mining-the-city/) you will find a repo called getting-started. 
+
+![GitHub account](/dmc/images/github02.png)
+
+Click on this repository, which will take you to [it's page](https://github.com/data-mining-the-city/getting-started). At the top right corner of the page, click the button that says 'Fork'.
+
+![GitHub account](/dmc/images/github03.png)
+
+This will create a copy of the repository on your own Github account, to which you can make changes.
