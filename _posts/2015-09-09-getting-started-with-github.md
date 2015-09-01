@@ -24,5 +24,5 @@ In addition to storing and tracking your own projects, Github provides several o
 
 To get started, go to https://github.com/ and sign up for a free account:
 
-![GitHub account](/images/github01.PNG)
+![GitHub account](images/github01.PNG)
 
