@@ -45,6 +45,30 @@ Click on this repository, which will take you to [it's page](https://github.com/
 
 This will create a copy of the repository on your own Github account, to which you can make changes. Now, let's download and install the Github client, so you can clone the repository to your local computer and make changes to the files locally. Go here: https://desktop.github.com/ to download the client and follow the instructions to install it. I will use the windows version, but it works in a similar way for both Mac and Linux.
 
-Once you have the client installed, you should see a blank interface that looks like this:
+Once you have the client installed, you should see a blank interface. Click the plus sign in the upper left corner, and go to Clone. This should have a list of any projects you have started or forked. CLick on the fork of getting-started, and click the check mark to clone this repository to your local computer. It will ask you where you want to clone the repository into. Select a folder such as 'My Documents/GitHub'. 
 
 ![GitHub account](/dmc/images/github04.png)
+
+Once the process is complete, you will see a local copy of all the files from the repository in the specified folder and a blank interface telling you that you have not made any local changes. 
+
+![GitHub account](/dmc/images/github05.png)
+
+Go to the repo's directory and find the README.md file in the main folder. Open the file in any text editor (I recommend downloading [Sublime](http://www.sublimetext.com/), which is a great free text editor with many useful features that I will use for the rest of this course). Make any change to the file and save it. 
+
+![GitHub account](/dmc/images/github06.png)
+
+As soon as you hit save, Github will register the change, and will track it in the Github client. You can review the changes made to each file by clicking them on the left pane. It will then show you which lines were deleted (in red) and added (in green) since the last commmit. To commit these changes to the repository, type in a short description of the changes you made, and hit the checkmark next to 'Commit to master'. To sync this commit to the online repository, hit the 'Sync' button in the top right corner. Anytime you want to make changes, make sure you both submit a commit **AND** sync to the server, or else no one else will be able to see your local changes.
+
+![GitHub account](/dmc/images/github07.png)
+
+Once the changes are synced, you can go back to the Github website and see that the changes are now reflected in your fork, with the commit description written next to the changed file. 
+
+![GitHub account](/dmc/images/github08.png)
+
+After you've made all the changes you want, you are now ready to submit your edits as a pull request to the master project. To start, click the text that says 'Pull request' (see image above). This will present you with an interface that lets you specify the source and target of the pull, as well as review the changes that have been made. On the top bar, the base fork should be the base project (data-mining-the-city/getting-started) and teh head fork should be your fork (<user>/getting-started). In this case, since the changes are minor and are not in conflict with any changes made in the main project, it is able to merge the changes directly without any additional negotiations. 
+
+Once you are satisfied, hit the green 'Create pull request' button to submit the request. You will have to write a short message describing all the changes you have made since forking the project. Make sure to write down any information the main project owners might need to know while considering your request. This will be the same method you use to turn in your lab work each week, so make sure to also include any feedback, as well as describe any issues or difficulties you had.
+
+![GitHub account](/dmc/images/github09.png)
+
+After the pull request has been made, you will be notified by email about the status of the request, as well as any comments that are made in the comments section. I will use the pull requests to track and grade the assignments, and will use the comments section to leave you feedback and request any changes.
