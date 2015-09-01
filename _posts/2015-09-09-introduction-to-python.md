@@ -85,7 +85,7 @@ Now open a command prompt, and navigate to the folder where you saved the file. 
 
 Once you have navigated to the folder, type in 'python pythonTest.py'. This will launch the Python interpreter and process all the code in the 'pythonTest.py' file. Notice in this case there is no line that starts with '>>>', meaning there is not instance the interpreter running to interact with. The interpreter only launches to read the file, executes every line, and then exists automatically with the code is processed. 
 
-![GitHub account](/dmc/images/canopy07.png)
+![GitHub account](/dmc/images/canopy08.png)
 
 To make your life easier in the command line, you can hit Shift to try to autocomplete certain pieces of text, and hit the up arrow to call up the last command executed.
 
