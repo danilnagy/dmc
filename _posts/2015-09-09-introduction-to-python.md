@@ -36,14 +36,41 @@ Once the installer is downloaded, click on it and follow the installation instru
 
 ### The Python Environment
 
-Once Canopy is set up, there are basically two ways for you to start interacting with Python. The more intuitive way starting out is to use the Canopy distribution Editor, which you can access by clicking on the Editor button in the main Canopy Screen. Once there you can start typing Python commands directly into the window on the bottom and get instant feedback from the Python interpreter. Try typing this line into the box after the the text 'In [1]:'
-
+Once Canopy is set up, there are basically two ways for you to start interacting with Python. The more intuitive way starting out is to use the Canopy distribution Editor, which you can access by clicking on the Editor button in the main Canopy Screen. Once there you can start typing Python commands directly into the window on the bottom and get instant feedback from the Python interpreter. Try typing this line into the box after the the text 'In [1]:' and hit Enter.
 
 ```python
 In [1]: print 'Hello Python'
 ```
 
 ![GitHub account](/dmc/images/canopy03.png)
+
+Once you hit enter, the code you wrote gets executed by the Python interpreter. In this case you asked it to print a piece of text, and it displays this text followin your line of code. Now the interpreter is idle, waiting for the next command.
+
+Another less intuitive but in the end more useful way to interact with Python is by using python directly from the command line. If you are on Windows, go to the Start Menu and search for 'cmd.exe' to start the Command Prompt. If you are on Mac or Linux open up the Terminal. Once there type 'python' to launch the Python interpreter. As you can see, this launches the same exact interpreter as we were using in the Canopy editor. Now we can interact with Python in the same way by typing commands after the '>>>' text.
+
+![GitHub account](/dmc/images/canopy04.png)
+
+In fact, Python behaves the same exact way whether we work with it from within the Canopy interface or directly from the command line. This is because Python is actually running in the background in both cases, and is not really tied to Canopy. All Canopy is doing is providing a friendly user interface for writing and exectuting code, and facilitating the installation and organization of external libraries, which we will get to shortly.
+
+So either of these methods work great for experimenting with Python commands, but there is only so much you can do by typing one command at a time. The real power of writing code is developing complex procedures over many lines of code, and then feeding it into the interpreter all at once. For this we want to write the code within a text file, and then feed that file to the interpreter. Once the interpreter gets the file, it will read it line by line, executing each line as it goes. There are again two ways to accomplish this, using the Canopy interface, and directly in the command prompt.
+
+To create a new file in Canopy, click the 'Create a new file' button on the top toolbar:
+
+![GitHub account](/dmc/images/canopy05.png)
+
+This will create a new blank text file where you can start typing your code. Write the following code starting at line 1:
+
+```python
+print 'Hello Python'
+print 'Hello again'
+```
+
+Now hit the green arrow icon to run the code through the interpreter.
+
+![GitHub account](/dmc/images/canopy06.png)
+
+This time the interpreter received the whole script at once (a file containing a sequence of lines of code is commonly referred as a script) and executed each line in order, first printing out 'Hello Python', and then printing out 'Hello again'. You can see that canopy has given the script a temporary name, since all scripts have to be saved to the disk before being executed. As you are working on your own scripts make sure to save your work by clicking the save icon on the toolbar and giving it a name ending in '.py'. This file extension is no different than any text file extension such as '.txt', but lets the text editor know that you are working in Python code so that it can do proper text highlighting. This highlighting will make it easier to work with code and help you spot mistakes along the way.
+
 
 
 ### Programming Basics
