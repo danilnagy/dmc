@@ -223,16 +223,19 @@ print dict.keys()
 
 For other useful functions you can refer to the proper place in [the documentation](https://docs.python.org/2/tutorial/datastructures.html#dictionaries).
 
-## 2. Conditionals
+Finally, values within lists and dictionaries are not restricted to being single pieces of data either, and can be lists and dictionaries as well. This allows you to build highly sophisticated data structures that match the needs of any project. You can access items within such a hierarchical structure by chaining together requests with square brackets. Here is an example:
 
+```python
+dict = {}
 
+dict['numbers'] = [1, 2, 3, 4, 5]
+dict['fruits'] = ['apples', 'oranges', 'bananas']
 
-## 3. Loops
+dict['numbers'].append(6)
+dict['fruits'].append({'berries':['strawberries', 'blueberries']})
 
+#compound request, should print 'blueberries'
+print dict['fruits'][-1]['berries'][1]
+```
 
-
-## 4. Functions
-
-We have already covered some function such as type(), str(), and .append()
-
-## 5. Objects
+JSON, one of the most wide spread and easiest to work with data formats is actually based on this concept of nested lists and dictionaries, and has great support within almost every programming language, including Python and JavaScript. We will start to implement it later in the course, but for now you can check out its documentation here: [http://json.org/](http://json.org/).
