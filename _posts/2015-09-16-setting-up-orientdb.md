@@ -44,6 +44,48 @@ Let's explore the data set by making some queries. Go back to the 'Browse' tab o
 SELECT * FROM V WHERE type = 'song'
 ```
 
+This is a basic query that will *SELECT* all data entries *FROM* the class 'V' that match the requirement included after the *WHERE* keyword. In this case we want to select all objects where the 'type' property is 'song'. The (*) is a wildcard, which specified that we want to select all properties from the returned objects. Studio will limit your queries to the first 20 results by default. You don't need to worry about this since it will not be an issue when we start querying with Python, but if you want to change it you can use in the 'LIMIT' keyword to the end of your query, which will explicity set the maximum number of records to return.
 
+```sql
+SELECT * FROM V WHERE type = 'song' LIMIT 1000
+```
 
-To start, we can type
+![OrientDB](/dmc/images/orientdb01.png)
+
+For each query OrientDB will give a graphic table which will give the pieces of data along the rows, with the various properties in the columns. You can also view this in the raw JSON format by clicking on the Raw tab at the bottom of the query display. 
+
+The first few columns are devoted to Metadata such as the object's unique ID number (rid or 'record id'), the class it belongs to, and the version of that object (this is incremented automatically if you update an object). The rid is a unique number reserved for each object in the database. It is made up of the 'cluster' to which the object belongs to (there is initially one cluster for each class, but you can make more) and it's index within that cluster. Clicking on the rid will take you to the entry of that object, showing all of it's properties. You can also directly bring up a record by querying its rid. For example
+
+```sql
+SELECT * FROM #9:1
+```
+
+will directly select this song from the database.
+
+The next section are the actual properties of the object, which can very depending on the definition of the class and the object itself. In this case, since we are only looking at songs, the properties include information such as the type of song, it's name, and the number of times it was performed. The last two sections deal with the graph data, which show the edge objects that connect to each object, and whether they point into or out of the object.
+
+We can also combine conditional and use comparison to find the data for need. For instance, to select all songs that have been performed more than 10 times, we can use the query
+
+```sql
+SELECT * FROM V WHERE type = 'song' and performances > 10
+```
+
+We can also count the number of entries a query returns simply by wrapping the wildcard with a COUNT() request like this
+
+```sql
+SELECT COUNT(*) FROM V WHERE type = 'song' and performances > 10
+```
+
+So far all of these examples have used the basic SQL language, and you can find many more useful queries and keywords by searching online. OrientDB also builds additional functionality on top of SQL to allow queries based on the graph structure of the database. For instance, if we want to find all songs sung by the artist whose rid is #9:8 we can use the query
+
+```sql
+TRAVERSE in(sung_by) FROM (SELECT * FROM #9:8)
+```
+
+*TRAVERSE* is a new keyword provided by OrientDB to deal specifically with navigating graph structures. You can find more information on using traverse in the [OrientDB documentation](http://orientdb.com/docs/2.0/orientdb.wiki/SQL-Traverse.html). This query will return all edges of type 'sung_by' which go *into* the object selected in the query within the parenthesis. Notice, however, that this will also return the artist himself. To fix this you can wrap the whole query with another *SELECT* which will only return objects with type 'song'
+
+SELECT * FROM (TRAVERSE in(sung_by) FROM (SELECT * FROM #9:8)) WHERE type = 'song'
+
+This type of nested request, combined with and interlinked graph structure, can be used to build up complex queries which will locate the exact set of object you are looking for.
+
+For a great basic tutorial of starting out with OrientDB you can consult a [great blog entry](http://pettergraff.blogspot.com/2014/01/getting-started-with-orientdb.html) from Petter Graff.
