@@ -6,4 +6,3 @@ tags:
 - orientdb
 ---
 
-OrientDB
