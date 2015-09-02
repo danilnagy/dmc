@@ -139,10 +139,67 @@ for fruit in fruits:
 	print fruit
 ```
 
-The 'for <item> in <list>:'' structure is the basic way to construct loops in Python. It basically runs the inset code within the structure once for each item in the list, each time setting the current item to the variable specified before the 'in'. In this case, it will run the 'print' code three times, once for each fruit in the list. Every time the code is run, the variable 'fruit' is set to a different fruit in the list in order.
+The 'for *item* in *list*: structure is the basic way to construct loops in Python. It basically runs the inset code within the structure once for each item in the list, each time setting the current item to the variable specified before the 'in'. In this case, it will run the 'print' code three times, once for each fruit in the list. Every time the code is run, the variable 'fruit' is set to a different fruit in the list in order. This is often used to apply a certain kind of analysis or processing to every element within a list.
 
-## 4. Functions
+You can do the same basic kind of iteration on a dictionary using the .keys() function, which will return a list of all the keys in the dictionary, and allow you to iterate over each entry:
 
-We have already covered some function such as type(), str(), and .append()
+```python
+dict = {'a': 1, 'b': 2, 'c': 3}
 
-## 5. Objects
+for key in dict.keys():
+	print dict[key]
+```
+
+If you run this code, you will see that the entries are not returned in the same order that they are typed. This is because dictionaries, unlike lists, do not enforce a specific order. However, iterating through the keys using the .key() function will ensure that you go through each item in the dictionary.
+
+In addition to iterating through every item in a list or dictionary, loops are often used to simply repeat a particular piece of code a specific amount of times. For this, Python's range() function is very useful, which takes in an integer value and returns a list of integers starting at 0, up to but not including that value:
+
+```python
+print range(5)
+```
+
+Using the range() function, we can set up a basic loop like:
+
+```python
+for i in range(5):
+	print 'Hello'
+```
+
+This will simply run the code inside the loop five times, since in effect we are creating a list of five sequential number, and then iterating over every item in that list. In addition, we are also storing each successive number in the variable 'i', which we can also use within the loop. A common example is to combine both strategies by tying the range() function to the length of a list (using the len() function), and then using the iterating number to get items from that list:
+
+```python
+fruits = ['apples', 'oranges', 'bananas']
+
+for i in range(len(fruits)):
+	print fruits[i]
+```
+
+Although this might seem redundant given the first example, there are times when you want to build a loop that has access to both an item within a list, as well as an iterator which specifies its index. In such cases, you can use a special function called enumerate() which takes in a list and returns both the item and its index:
+
+```python
+fruits = ['apples', 'oranges', 'bananas']
+
+for i, fruit in enumerate(fruits):
+	print 'the ' + fruit + ' are in position ' + str(i)
+```
+
+While the 'for' loop will serve most purposes, there is another kind of loop which will iterate over a piece of code until a certain condition is met:
+
+```python
+i = 0
+
+while i < 5:
+	print i
+	i += 1
+```
+
+In this case, the loop will keep going while it's condition is satisfied, and only stop once the variable 'i' obtains a value greater or equal to 5. This type of loop can be useful if you do not know know how long the loop should be run for, or if you want to make the termination criteria somehow dynamic relative to other activities within the script. It requires a bit more setup, however, as the value tested must first be initialized (i = 0), and there has to be code within the loop which changes that value in such a way that it eventually meets the exit criteria. This type of loop is also more dangerous, because it can easily create a situation where the loop can never exit. In theory, such a loop will run indefinitely, although in practice it will most certainly cause Python to crash. The most dangerous kind of loop is also the simplest:
+
+```python
+while True:
+	print 'infinity'
+```
+
+because by definition it has no way to ever terminate. Surprisingly, such a loop does have a common use (which we will encounter later in these tutorials), but you should never write such code unless you absolutely know what you are doing (maybe try it just the once so you can get a sense of its effects). By the way, if you every run into trouble with infinite loops, you can use the shortcut Ctrl+C to force Python to terminate, or go to Run->Restart Kernel... in the Canopy interface to force restart the Python interpreter.
+
+This concludes our basic coverage of the two main types of 'flow control' structures, *conditionals* and *loops*. With these structures you can start to write much more complex scripts, which are not restricted to executing one command per line, and can exhibit different behavior based on changing conditions in the script. In the final tutorial, we will introduce even more flexibility by packaging pieces of code into custom functions and objects so they can be reused throughout the script.
