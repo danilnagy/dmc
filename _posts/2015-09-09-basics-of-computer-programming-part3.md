@@ -115,7 +115,7 @@ However, this is discouraged because it reveals the true name of the local varia
 
 As far as naming classes goes, you can follow the same rule as naming variables or functions, however the standard practice is to capitalize every word, including the first one.
 
-Finally, in the example above every instance we make of the CounterClass will start the counter at 0. However, what if we want to specify what this count should be when we make an instance of the class? For this we can implement the __init__() method (those are two underscores on each side of 'init'):
+Finally, in the example above every instance we make of the CounterClass will start the counter at 0. However, what if we want to specify what this count should be when we make an instance of the class? For this we can implement the `__init__()` method (those are two underscores on each side of 'init'):
 
 ```python
 class CounterClass:
@@ -143,6 +143,6 @@ myNewCounter.addToCounter(2)
 print myNewCounter.getCount()
 ```
 
-When the class instance is initialized, it will automatically run the __init__() method, which will utilize any variable passed into during initialization. __init__() is one of a series of special methods that classes can implement to achieve different functionality. The rest of these are beyond the scope of this class, but you can find a more thorough description of these, as well as other aspects of classes, in the [Python documentation](https://docs.python.org/2/tutorial/classes.html).
+When the class instance is initialized, it will automatically run the `__init__()` method, which will utilize any variable passed into during initialization. `__init__()` is one of a series of special methods that classes can implement to achieve different functionality. The rest of these are beyond the scope of this class, but you can find a more thorough description of these, as well as other aspects of classes, in the [Python documentation](https://docs.python.org/2/tutorial/classes.html).
 
-This concludes our very basic overview of Python and the fundamental elements of computer programming. To test your knowledge, please clone the [week-1 repository from Github]() and complete the simple programming assingment, which will test your knowledge of some of the basic ideas covered in this week's tutorials. Make sure to submit a pull request on your completed assignment before the due date to get credit.
+This concludes our very basic overview of Python and the fundamental elements of computer programming. To test your knowledge, please clone the [week-1 repository from Github]() and complete the simple programming assingment, which will test your knowledge of some of the basic ideas covered in this week's tutorials. Make sure to submit a pull request on your completed assignment before the deadline.
