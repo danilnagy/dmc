@@ -84,7 +84,9 @@ TRAVERSE in(sung_by) FROM (SELECT * FROM #9:8)
 
 *TRAVERSE* is a new keyword provided by OrientDB to deal specifically with navigating graph structures. You can find more information on using traverse in the [OrientDB documentation](http://orientdb.com/docs/2.0/orientdb.wiki/SQL-Traverse.html). This query will return all edges of type 'sung_by' which go *into* the object selected in the query within the parenthesis. Notice, however, that this will also return the artist himself. To fix this you can wrap the whole query with another *SELECT* which will only return objects with type 'song'
 
+```sql
 SELECT * FROM (TRAVERSE in(sung_by) FROM (SELECT * FROM #9:8)) WHERE type = 'song'
+```
 
 This type of nested request, combined with and interlinked graph structure, can be used to build up complex queries which will locate the exact set of object you are looking for.
 
