@@ -128,13 +128,18 @@ if num1 < 5 or num2 < 5:
 	print "at least one of them is too small!"
 ```
 
-
-
-
-
 ## 3. Loops
 
+Loops are the second primary type of 'flow control' structure, and they can be used to make code repeat multiply times under specific conditions. The most basic type of loop is one that iterates over each value within a list:
 
+```python
+fruits = ['apples', 'oranges', 'bananas']
+
+for fruit in fruits:
+	print fruit
+```
+
+The 'for <item> in <list>:'' structure is the basic way to construct loops in Python. It basically runs the inset code within the structure once for each item in the list, each time setting the current item to the variable specified before the 'in'. In this case, it will run the 'print' code three times, once for each fruit in the list. Every time the code is run, the variable 'fruit' is set to a different fruit in the list in order.
 
 ## 4. Functions
 
