@@ -88,6 +88,12 @@ class CounterClass:
 		return self.count
 ```
 
+The '+=' notation here is a shorthand in Python for adding a value to a variable. You can write the same thing explicitly like:
+
+```python
+self.count = self.count + inputValue
+```
+
 To use this class, we first need to create an instance of it, which we will store in a variable just like any other data:
 
 ```python
@@ -142,6 +148,6 @@ myNewCounter.addToCounter(2)
 print myNewCounter.getCount()
 ```
 
-When the class instance is initialized, it will automatically run the `__init__()` method, which will utilize any variable passed into during initialization. `__init__()` is one of a series of special methods that classes can implement to achieve different functionality. The rest of these are beyond the scope of this class, but you can find a more thorough description of these, as well as other aspects of classes, in the [Python documentation](https://docs.python.org/2/tutorial/classes.html).
+When the class instance is initialized, it will automatically run the `__init__()` method, which will utilize any variable passed into during initialization. Notice how we still have to initialize the local variable with a value, which is then replaced during the `__init__()` function. `__init__()` is one of a series of special methods that classes can implement to achieve different functionality. The rest of these are beyond the scope of this class, but you can find a more thorough description of these, as well as other aspects of classes, in the [Python documentation](https://docs.python.org/2/tutorial/classes.html).
 
 This concludes our very basic overview of Python and the fundamental elements of computer programming. To test your knowledge, please clone the [week-1 repository from Github]() and complete the simple programming assingment, which will test your knowledge of some of the basic ideas covered in this week's tutorials. Make sure to submit a pull request on your completed assignment before the deadline.
