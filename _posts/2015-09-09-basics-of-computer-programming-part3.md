@@ -136,7 +136,6 @@ Now we can create a new instance of the counter, but this time pass in a startin
 
 ```python
 myNewCounter = CounterClass(10)
-
 myNewCounter.addToCounter(2)
 
 #this should now return 12
