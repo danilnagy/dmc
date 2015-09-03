@@ -7,13 +7,11 @@ tags:
 - python
 ---
 
-Accessing OrientDB through Python
-
 OrientDB works fine as a standalone database, but it's real power (and usefulmess for our purpose) comes from integrating it within a larger data solution such as a server. For this, querying the database through the built in console or web interface is not super useful, since we want the queries to actually happen automatically on the backend of our Web Stack. For this, OrientDB provides many separate libraries to allow the database to work with other programming languages, including Python. Using this library, we can actually start the OrientDB server from within Python, make queries directly with Python code, and work with the returned objects. 
 
-#For this tutorial we will be using the **soufun database**, so if you haven't loaded it yet, please follow the instructions in the previous post to load it before proceeding.
+###For this tutorial we will be using the **soufun database**, so if you haven't loaded it yet, please follow the instructions in the previous post to load it before proceeding.
 
-### Installing the pyorient library
+## Installing the pyorient library
 
 This is the first time we have addressed using a separate library with Python, which is actually a very important part of working with Python that will come up again and again. On it's own, the basic Python installation has only the most basic functionality to make it work as a programming language. This is done intentionally to keep it relatively light compared to other software you might download. On the other hand, what has made Python so popular over the years is that it is very easy to create custom libraries that extend it's functionalities for particular purposes. To get this functionality, you just have to download and install the specific library you want to use. With the basic install of Python this can be tricky, since you usually have to go through the command line, make sure you have all the dependencies, and make sure you are installing into the proper folder (which is different depending on which version of Python you have and what operating system you are using). Luckily, Canopy makes installing these libraries (or 'packages' as they are sometimes called) much easier and relatively pain free.
 
@@ -48,7 +46,7 @@ import pyorient
 
 If it does not give you an 'ImportError' saying 'No module named pyorient' the installation succeeded and you can continue with the rest of the tutorial.
 
-### Working with OrientDB in Python
+## Working with OrientDB in Python
 
 Now let's start to use the pyorient library to allow Python to communicate with OrientDB. At this point, the documentation of the library is somewhat limited, with most information found on the project's main [Github page](https://github.com/mogui/pyorient). However, the information there is sufficient for the purposes of the class, and since this is an open source project more advanced users can study the functionality by going directly into the source code.
 
