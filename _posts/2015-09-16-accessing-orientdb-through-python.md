@@ -147,7 +147,7 @@ print record
 
 This will get the first record in the records list, and then print the type as well as the contents of the record.
 
-![OrientDB](/dmc/images/orientdb05.png)
+![OrientDB](/dmc/images/orientdb06.png)
 
 As you can see, the records come back as a list of 'OrientRecord' objects, which are similar to dictionaries, except the properties of the listings can be accessed through the '.' syntax, instead of the typical '[]'. For example, to print out the price of the first listing we can add the line
 
