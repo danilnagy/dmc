@@ -13,7 +13,7 @@ OrientDB works fine as a standalone database, but it's real power (and usefulmes
 
 ## Installing the pyorient library
 
-This is the first time we have addressed using a separate library with Python, which is actually a very important part of working with Python that will come up again and again. On it's own, the basic Python installation has only the most basic functionality to make it work as a programming language. This is done intentionally to keep it relatively light compared to other software you might download. On the other hand, what has made Python so popular over the years is that it is very easy to create custom libraries that extend it's functionalities for particular purposes. To get this functionality, you just have to download and install the specific library you want to use. With the basic install of Python this can be tricky, since you usually have to go through the command line, make sure you have all the dependencies, and make sure you are installing into the proper folder (which is different depending on which version of Python you have and what operating system you are using). Luckily, Canopy makes installing these libraries (or 'packages' as they are sometimes called) much easier and relatively pain free.
+This is the first time we have addressed using a separate library with Python, which is actually a very important part of working with Python that will come up again and again. On it's own, the basic Python installation includes only the most basic functionality to make it work as a programming language. This is done intentionally to keep it relatively light compared to other software you might download. On the other hand, what has made Python so popular over the years is that it is very easy to create custom libraries that extend it's functionalities for particular purposes. To get this functionality, you just have to download and install the specific library you want to use. With the basic install of Python this can be tricky, since you usually have to go through the command line, make sure you have all the dependencies, and make sure you are installing into the proper folder (which is different depending on which version of Python you have and what operating system you are using). Luckily, Canopy makes installing these libraries (or 'packages' as they are also called) much easier and relatively pain free.
 
 Most popular packages can be installed directly through Canopy's package manager, which can be accessed through the button on the main Canopy splash screen, or by going to Tools -> Package Manager from the Editor window. Here you can search for your package using the search bar in the upper left corner, and if it is available you can install it directly from this window, no trips to the Command Promt necessary!
 
@@ -57,3 +57,11 @@ import pyorient
 ```
 
 Next, we 
+
+
+https://goo.gl/maps/xAdAx
+
+![OrientDB](/dmc/images/orientdb04.png)
+
+
+![OrientDB](/dmc/images/orientdb05.png)
