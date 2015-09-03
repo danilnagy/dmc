@@ -40,6 +40,16 @@ You can rebuild all the indeces in OrientDB studio by clicking on the Schema tab
 
 ![OrientDB](/dmc/images/orientdb02.png)
 
-You can also find the individual indeces by clicking on an individual class name in the Schema view. The indeces are listed under the properties. Here you can add a new index or rebuild them individually.
+You can also find the individual indeces by clicking on a class name in the Schema view. The indeces are listed below the properties. Here you can add a new index or rebuild them individually.
 
 ![OrientDB](/dmc/images/orientdb03.png)
+
+To make sure that everything is working properly, go back to the Browse tab, and type in the query
+
+```sql
+SELECT COUNT(*) FROM V
+```
+
+This should work for both databases, and return the number of elements in the 'V' superclass.
+
+Now that the databases are up and running, we are ready to start using them with Python, which is the first step in the development of our Web Stack!
