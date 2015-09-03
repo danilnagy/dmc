@@ -6,8 +6,6 @@ tags:
 - orientdb
 ---
 
-Loading the DMC Databases
-
 Now that we know a bit about OrientDB, let's load up the two databases we will be using during this course, and run some test queries to make sure everything is working correctly. Before proceeding, make sure that you do not have any OrientDB server running by running the `shutdown.bat` or `shutdown.sh` command in the /bin folder.
 
 Start by going to this link [https://goo.gl/XuOlmj](https://goo.gl/XuOlmj) and downloading the data sets you want to restore. Once downloaded, make a folder called '/db' in your main system directory ('C:/' on Windows) and put the downloaded .zip file in that folder. We will be using the OrientDB's command line console to restore the database and it can be finicky with spaces in path names, so it is easiest to have the source file in a location that is easy to reach.
