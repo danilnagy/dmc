@@ -27,7 +27,7 @@ Like pyorient, Flask is an external Python library, so before we start to use it
 import flask
 ```
 
-If you don't get an error the installion was successful and we are ready to go. To start, fork and clone the 'week-3' repository from the DMC Github page. This repository will give you the most basic file structure that we need to set up a Flask server. The repository contains two files, an 'app.py' Python file which will contain all the code for the server, and an 'index.html' file in a folder called 'templates' which has a bare minimum structure for the front end website. Open up the 'app.py' file. This is an empty file where we'll write the code for our basic server. Start by importing the two Classes we will need from the flask library:
+If you don't get an error the installion was successful and we are ready to go. To start, fork and clone the ['week-3'](https://github.com/data-mining-the-city/week-3) repository from the DMC Github page. This repository will give you the most basic file structure that we need to set up a Flask server. The repository contains several files, including an 'app.py' Python file which will contain all the code for the server, and an 'index.html' file in a folder called 'templates' which has a bare minimum structure for the front end website. There is also a folder called /static with a /lib folder containing reference files that we will get to in the next two tutorials. Open up the 'app.py' file. This is an empty file where we'll write the code for our basic server. Start by importing the two Classes we will need from the flask library:
 
 ```python
 from flask import Flask
