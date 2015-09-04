@@ -7,4 +7,6 @@ tags:
 - js
 ---
 
-Basic JS - Leaflet
+Now that we have the communication down, it is time to start building out the actual functionality of our Web Stack. After all, we are not trying to create a website that tells time, right?
+
+The first step will be to use 

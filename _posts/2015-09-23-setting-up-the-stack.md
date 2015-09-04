@@ -9,9 +9,9 @@ tags:
 
 Now that we can access our database from Python, we can start implementing the server side or 'backend' of our Web Stack. For this we will use the [*Flask*](http://flask.pocoo.org/) library for Python. Flask is a basic [web application framework](https://en.wikipedia.org/wiki/Web_application_framework) which can set up a simple web server completely within Python. The advantage of using Flask for us is that it will automate most of the technical details of setting up a server, and minimize the amount of server-specific code we have to write. It also has the advantage of keeping the entire backend within a single Python script, including all server operations, reading from the database, and running any data analysis code including Machine Learning. This will allow us to focus on the fun part of writing code for processing the data, and designing the way that user interactions from the front end will interface with data processes running on the backend.
 
-[DB - server <-> UI diagram]
+[DB - server <-> client]
 
-So what exactly is a server? A through description of server architecture is definitely beyond the scope of the course, but for our purposes it is enough to think of the server as the middleman between the database, where the data is stored, and the front end, where requests for data occur. Most of the time, the server sits idle, waiting for requests from one or more users. Users can connect to the server and ask for information in the form of structured 'requests'. Once it receives a request, the server does whatever processing is necessary and then returns of 'serves' this information back to the user. In addition to simply getting the data through queries to the database (which we've already seen), the server can also process the data in various ways, including running more advanced analysis such as Machine Learning. 
+So what exactly is a server? A through description of server architecture is definitely beyond the scope of the course, but for our purposes it is enough to think of the server as the middleman between the database, where the data is stored, and the front end or 'client', where requests for data occur. Most of the time, the server sits idle, waiting for requests from one or more users. Users can connect to the server and ask for information in the form of structured 'requests'. Once it receives a request, the server does whatever processing is necessary and then returns of 'serves' this information back to the user. In addition to simply getting the data through queries to the database (which we've already seen), the server can also process the data in various ways, including running more advanced analysis such as Machine Learning. 
 
 In a true Web-based setup, servers are usually located offsite, organized in large distributed and networked clusters, and housed within large warehouses called 'Data Centers'. To see what this server infrastructure looks like in the real world, you can take a look inside one of Google's Data Centeres here: [http://www.google.com/about/datacenters/inside/streetview/](http://www.google.com/about/datacenters/inside/streetview/). The front end, on the other hand, are all of the personal devices that people use to log onto the internet. When you go to a web browser and enter in an address for a website or use a web-based service like Google Docs, your device actually connects to one or more of these servers, and sends a request for information. This type of infrastructure was originally developed for viewing content on the web, with servers being devoted to simply serving up static web pages based on user requests. However, this same infrastructure has been widely exampanded in recent years to power all kinds of interactions, from web-based software such as Google Docs, to cloud storage services such as Dropbox.
 
@@ -56,7 +56,7 @@ Now let's take a look at the webpage file that will be returned. Open the 'index
 	<title>Flask Demo</title>
 </head>
 <body>
-	<div>"This is a page"</div>
+	<div>This is a page</div>
 </body>
 </html>
 ```
@@ -74,7 +74,7 @@ The conditional on the first line checks to make sure that the script is running
 
 The next step is to open up a command prompt and execute the 'app.py' file in the Python interpreter, which will start the server. You should see this message
 
-![OrientDB](/dmc/images/flask01.png)
+![Flask](/dmc/images/flask01.png)
 
 telling you that the server is now running at `http://0.0.0.0:5000/`. You can access it by typing this address into a web browser, or use `localhost:5000` as a shortcut. Do this now. you should see a basic website with just the words "This is a page" on the screen. What is actually happening behind the scenes is that the web browser connects to the Flask server, and sends a request on the main path ('/'). In response, the server runs the function under the main route, and returns our basic .html website. The web browser then displays that website back to us. 
 
