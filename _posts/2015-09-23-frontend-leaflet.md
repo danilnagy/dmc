@@ -59,4 +59,29 @@ We give the container the unique id 'map' so that we can apply styling to it and
 var map = L.map('map').setView([22.399961, 114.117523], 11);
 ```
 
-We use the .map() function of the base Leaflet class (called 'L') and pass it the id of the container where the map should go. In the same line, we run the .setView() function on this map to set where the latitude and longitude where the map should be centered, as well as the zoom level. Executing a sequence of functions one after the other like this is known as 'method chaining', and is another aspect of JavaScript that may be confusing at first, but becomes very handy with practice. This is possible in JavaScript because most class functions return the modified version of 
+We use the .map() function of the base Leaflet class (called 'L') and pass it the id of the container where the map should go. In the same line, we run the .setView() function on this map to set where the latitude and longitude where the map should be centered, as well as the zoom level. Executing a sequence of functions one after the other like this is known as 'method chaining', and is another aspect of JavaScript that may be confusing at first, but becomes very handy with practice. This is possible in JavaScript because most class methods return the modified version of the object. So you work from left to right, with each method returning the modified object, on which the next method to the right is applied. You can read a good description of method chaining in Scott Murray's [D3 tutorials](http://alignedleft.com/tutorials/d3/chaining-methods).
+
+The last thing we need to do to get our basic map working is to specify the tile files that our map will use. There are many different providers out there that serve map tiles, some which are free and others you have to pay to use. Leaflet allows you to work with any of these tile sets, so the choice is up to you and your needs. A good place to start is with OpenStreetMap tiles, which are free to use and supplied by the open source [https://www.openstreetmap.org](https://www.openstreetmap.org) project. To bind our new map to these tiles, add the following lines of code after the 'map' variable definition:
+
+```javascript
+L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+}).addTo(map);
+```
+
+This is all one line of code, broken up for readability, which first uses the .tileLayer() method of the 'L' Leaflet class to specify the tile set we want to use, and then uses the tile layer's .addTo() method to add the tile layer to our map. Into the .tileLayer() method we pass a string called the 'URL Template' which tells Leaflet where to locate the tiles. You can see a full documentation of the .tileLayer() function and how to format the the URL Template in the [Leaflet documentation](http://leafletjs.com/reference.html#tilelayer). We also pass an optional 'attribution' parameter which specifies the source of our map tiles, and will appear at the bottom right hand corner of our map. Into the .addTo() function we pass a reference to our map object, which is stored in the 'map' variable.
+
+Save the `index.html` file, start the app.py server, and load the page at `localhost:5000`. You should now see a full-page map, centered around Hong Kong, using the OpenStreetMap tiles. You can navigate around the map as you would with any online map, by clicking and dragging and using either the scroll wheel or the buttons at the upper left corner to zoom in and out.
+
+While the basic OpenStreetMap tiles are nice, it would be great to have more control over how the map looks and have it coordinated with the rest of the graphics on our site. For this we can use a service like [Mapbox](https://www.mapbox.com/), which allows us to create custom tile layers with alot of controls for custom styling. Mapbox includes a collection of custom styled tiles out of the box, or you can use their editing tools to create your own. You can see their basic tile sets, as well as documentation about how to implement them in [their documentation](https://www.mapbox.com/developers/api/maps/). To use the tiles you will need to sign up for a Mapbox account and obtain an access token. To use the 'mapbox.light' tiles provided by Mapbox you can replace the previous tile code with 
+
+```javascript
+L.tileLayer('https://api.tiles.mapbox.com/v4/{mapid}/{z}/{x}/{y}.png?access_token={accessToken}', {
+	attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
+	mapid: 'mapbox.light',
+	accessToken: [INSERT YOUR TOKEN HERE!]
+}).addTo(map);
+
+Notie that we have changed the URL Template string to match the one specified by Mapbox, and added a few more parameters to specify the 'mapid' of the tiles, as well as your individual 'accessToken'. In order to see the tiles you will have to sign up for an account and include your own access token. You can find instructions for how to do this [here](https://www.mapbox.com/help/create-api-access-token/). Note we also updated the map attribution to reflect that we are using data from Mapbox (this is not technically required but is a good practice and will make you feel like a good web citizen).
+
+That concludes our basic implementation of a dynamic map underlay for our Web Stack. In the next tutorial we will put everything together by using D3 to make a request for data from the server, and displaying the data by drawing objects to the map.
