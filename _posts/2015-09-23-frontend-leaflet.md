@@ -81,7 +81,8 @@ L.tileLayer('https://api.tiles.mapbox.com/v4/{mapid}/{z}/{x}/{y}.png?access_toke
 	mapid: 'mapbox.light',
 	accessToken: [INSERT YOUR TOKEN HERE!]
 }).addTo(map);
+```
 
-Notie that we have changed the URL Template string to match the one specified by Mapbox, and added a few more parameters to specify the 'mapid' of the tiles, as well as your individual 'accessToken'. In order to see the tiles you will have to sign up for an account and include your own access token. You can find instructions for how to do this [here](https://www.mapbox.com/help/create-api-access-token/). Note we also updated the map attribution to reflect that we are using data from Mapbox (this is not technically required but is a good practice and will make you feel like a good web citizen).
+Note that we have changed the URL Template string to match the one specified by Mapbox, and added a few more parameters to specify the 'mapid' of the tiles, as well as your individual 'accessToken'. In order to see the tiles you will have to sign up for an account and include your own access token. You can find instructions for how to do this [here](https://www.mapbox.com/help/create-api-access-token/). Note we also updated the map attribution to reflect that we are using data from Mapbox (this is not technically required but is a good practice and will make you feel like a good web citizen).
 
 That concludes our basic implementation of a dynamic map underlay for our Web Stack. In the next tutorial we will put everything together by using D3 to make a request for data from the server, and displaying the data by drawing objects to the map.
