@@ -38,7 +38,7 @@ We initialize each feature as a dictionary with some standard GeoJSON formatting
 
 In the next few lines we will fill in the feature dictionary according to the data we receive for each record. We first create an 'id' key in the main dictionary which will store the unique 'rid' of the record in our database. Then we specify some of the non-geographic properties of the record. In this case we are only storing the 'title' and 'price' of the record since we would like to use this for visualization and processing later, but you can store any number of properties by simply adding them to the 'properties' dictionary. Finally, we add the latitude and longitude coordinates of the record to a new 'coordinates' key wihtin the 'geometry' dictionary. After all the data has been specified, we append the feature dictionary to the list of features within the main output dictionary.
 
-The last line of our `/getData/` function returns our new GeoJSON formatted dictionary as a json file by running it through `.dumps()` function of Python's json library.
+The last line of our `/getData/` function returns our new GeoJSON formatted dictionary as a json file by running it through the `.dumps()` function of Python's json library.
 
 ```python
 return json.dumps(output)
