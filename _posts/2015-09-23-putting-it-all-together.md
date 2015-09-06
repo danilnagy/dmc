@@ -51,7 +51,7 @@ Let's start by creating some variables to store references to objects on the web
 ```javascript
 var svg = d3.select(map.getPanes().overlayPane).append("svg");
 var g = svg.append("g").attr("class", "leaflet-zoom-hide");
-``
+```
 
 The first line creates an empty 'svg' object that will contain all of our drawn geometry. 
 
@@ -139,4 +139,16 @@ update();
 map.on("viewreset", update);
 ```
 
-Congratulations, our basic implementation of the Web Stack is complete! Using this basic structure we can develop different user interaction features that can create requests for data from the server, and visualize this data back to the user. We will build on this framework to develop various UI and data processing function in the rest of the tutorials. For now, test your knowledge by switching to the '05-assignment' branch in the ['week-3' repository](https://github.com/data-mining-the-city/week-3) and complete the instructions in the `index.html` file. Remember to submit a pull request with your changes before the next deadline.
+In addition to controlling the properties of SVG elements through the D3 `.attr()` method, you can also control global properties of SVG elements through CSS, just as we did for HTML elements. In the `<head>` portion of the document, add another property within the `<style>` tags:
+
+```css
+circle {
+	fill-opacity: 0;
+	stroke: red;
+	stroke-width: 5px;
+}
+```
+
+This will set some global style parameters to all 'circle' elements on the page. Here we set the fill to transparent, change the stroke (another word for outline) color to red, and the thickness of the stroke to 5 pixels. For more examples of SVG styling and the available parameters you can consult this [SVG tutorial](http://www.w3schools.com/svg/svg_circle.asp).
+
+Congratulations, our basic implementation of the Web Stack is complete! Using this basic structure we can develop different user interaction features that can create requests for data from the server, and visualize this data back to the user. We will build on this framework to develop various UI and data processing function in the rest of the tutorials. For now, test your knowledge by switching to the '05-assignment' branch in the ['week-3' repository](https://github.com/data-mining-the-city/week-3) and complete the instructions in the `index.html` file to implement dynamic sizing of the circles according to price data. You can also experiment with further styling of the svg elements by adding your own CSS styling rules to the `<head>` of the document. Remember to submit a pull request with your changes before the next deadline.
