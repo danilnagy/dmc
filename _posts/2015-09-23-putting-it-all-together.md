@@ -151,4 +151,6 @@ circle {
 
 This will set some global style parameters to all 'circle' elements on the page. Here we set the fill to transparent, change the stroke (another word for outline) color to red, and the thickness of the stroke to 5 pixels. For more examples of SVG styling and the available parameters you can consult this [SVG tutorial](http://www.w3schools.com/svg/svg_circle.asp).
 
+![Flask](/dmc/images/flask08.png)
+
 Congratulations, our basic implementation of the Web Stack is complete! Using this basic structure we can develop different user interaction features that can create requests for data from the server, and visualize this data back to the user. We will build on this framework to develop various UI and data processing function in the rest of the tutorials. For now, test your knowledge by switching to the '05-assignment' branch in the ['week-3' repository](https://github.com/data-mining-the-city/week-3) and complete the instructions in the `index.html` file to implement dynamic sizing of the circles according to price data. You can also experiment with further styling of the svg elements by adding your own CSS styling rules to the `<head>` of the document. Remember to submit a pull request with your changes before the next deadline.
