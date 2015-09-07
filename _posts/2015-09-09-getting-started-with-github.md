@@ -32,7 +32,7 @@ This is the main page for all of the lab assignments for the class. Here you wil
 
 1. Each week, fork the repository for that week into your own account. You can fork all the repositories at once, or do it before starting each week's labs. Be aware that there might be changes made to later weeks, so make sure to sync all changes from the main project before starting the lab.
 2. Clone your fork of the repository onto your local desktop.
-3. Work on the code locally as you complete the labs. Feel free to make commits to your fork as you work to keep track of your changes as you see fit. I recommend coming up with your own committing system to keep track of major changes, but this will not effect your completion of the assigment.
+3. Work on the code locally as you complete the labs. Feel free to make commits to your fork as you work to keep track of your changes as you see fit. I recommend coming up with your own committing system to keep track of major changes, but this will not effect your completion of the assigment. Keep in mind that in some weeks, branches will be used to develop different version of the code for different steps of the tutorial. Make sure you switch to the right branch before starting the relevant tutorial.
 4. Once you have finished the week's lab, submit a pull request back to the main project (data-mining-the-city) asking to merge all code. I will then review your code changes, and make comments and ask for revisions within the pull request comments section.
 
 To test out this workflow, let's go through an example. On the [data-mining-the-city Github site](https://github.com/data-mining-the-city/) you will find a repo called getting-started. 
