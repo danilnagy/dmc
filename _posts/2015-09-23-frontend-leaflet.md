@@ -13,7 +13,13 @@ The first step will be to use the [Leaflet.js](http://leafletjs.com/) library to
 
 The Leaflet.js site has a [great set of very clear tutorials](http://leafletjs.com/examples.html) that you can consult to get started with it's basic features. Since we want to build a full-window map application (similar to Google Maps), I will base our code on the ['Leaflet on Mobile'](http://leafletjs.com/examples/mobile.html) tutorial to create a simple interactive full-page map.
 
-Switch to the `03-leaflet` branch in the ['week-3'](https://github.com/data-mining-the-city/week-3) repository. Open the `index.html` file in the templates folder. This file contains a basic html web site, with d3 imported, and a `<script>` section in the `<body>` for writing code. Start by importing the Leaflet library, by adding
+Switch to the `03-leaflet` branch in the ['week-3'](https://github.com/data-mining-the-city/week-3) repository. To switch to another branch, go to your Github client and click the repository button at the top left.
+
+![Flask](/dmc/images/flask07.png)
+
+Once you switch to a different branch, your local files will automatically update to correspond to the state of that branch, and when you push commits they will be pushed to that branch as well. Make sure you commit any changes before switching branches, or you will risk losing your work.
+
+Open the `index.html` file in the templates folder. This file contains a basic html web site, with d3 imported, and a `<script>` section in the `<body>` for writing code. Start by importing the Leaflet library, by adding
 
 ```html
 <script type="text/javascript" src="./static/lib/leaflet.js"></script>
