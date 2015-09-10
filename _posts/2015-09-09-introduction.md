@@ -26,6 +26,6 @@ At it's most basic a Web Stack is composed of:
 - a **backend server** that can query the database in realtime and perform data analysis and processing operations
 - an **frontend interface** accessed through a web browser which requests data from the server and presents it to the user
 
-![GitHub account](/dmc/images/stack.jpg)
+![GitHub account](/dmc/images/stack.png)
 
 The following sequence of tutorials will provide a basic overview of three pieces of technology, each related to a component of a basic Web Stack. For the database we will use [OrientDB](http://orientdb.com/), a very modern and flexible database system based on the principles of [NoSQL](https://en.wikipedia.org/wiki/NoSQL). For the backend and processing we will use [Python](https://www.python.org/), one of the most popular and flexible programming languages. For the user interface we will use [JavaScript](https://en.wikipedia.org/wiki/JavaScript), the undisputed standard of interactive Web design. Although mastery of these platforms is beyond the scope of this class, we will take a hands-on approach and learn just enough of the basics to build a fully functional Web Stack, specifically geared towards the needs of urban analysis. Although this can't compete with the full capabilities of another GIS tool, it will by it's nature be open, extensible, and 'born in the cloud'.
