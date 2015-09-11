@@ -6,18 +6,18 @@ tags:
 - python
 ---
 
-If you've never written code, or done any computer programming, the whole concept might seem daunting at first. In fact, while advanced software development is without a doubt incredibly complex, programming in general is based on only a few key concepts. If you compare a computer language to a human language, the particular syntax or terms of the language might be related to the proper spelling of words, while the larger concepts are related to the general grammar. By understanding these concepts from the beginning, you will be less intimidated by all of the particular syntax that you do not know. As long as you can express what you want the program to do in general terms, you can always search the internet for examples using the proper syntax. In fact this is how most people learn to code today. Furthermore, while each programming language (of which there are [many](https://en.wikipedia.org/wiki/Programming_language)) has it's own syntax, they almost all follow the same basic principles. Thus, learning these principles will be useful no matter what language you end up using, as we will see when we start to use some JavaScript later in the course.
+If you've never written code, or done any computer programming, the whole concept might seem daunting at first. In fact, while advanced software development is without a doubt incredibly complex, programming in general is based on only a few key concepts. If you compare a computer language to a human language, the particular syntax or terms of the language might be related to the proper spelling of words, while the larger concepts are related to the general grammar. By understanding these concepts from the beginning, you will be less intimidated by all of the particular syntax that you do not know. As long as you can express what you want the program to do in general terms, you can always search the internet for examples on using the proper syntax. In fact this is how most people learn to code today. Furthermore, while each programming language (of which there are [many](https://en.wikipedia.org/wiki/Programming_language)) has it's own syntax, they almost all follow the same basic principles. So learning these principles will be useful no matter what language you end up using, as we will see when we start to use some JavaScript later in the course.
 
-In separating the basic principles and structure of code from the syntax of a particular language, one useful concept is [pseudocode](https://en.wikipedia.org/wiki/Pseudocode). Pseudocode is the description of a program's basic functionality through natural language, which is translated later to actual syntax. This is useful when you are learning a language to describe features of a program that you do not yet know how to execute. It is also used by experienced programmers to describe a program's rough template or outline, which is then fleshed out by one or more developers in actual code. Pseudocode is often even left in the final code as comments, to provide a quick reference to the code's structure as a reminder to the developer, or to someone who is not as familiar with the code.
+In separating the basic principles and structure of code from the syntax of a particular language, one useful concept is [pseudocode](https://en.wikipedia.org/wiki/Pseudocode). Pseudocode is the description of a program's basic functionality through natural language, which is translated later to actual syntax. Using pseudocode can be useful when you are first learning a language because it lets you describe features of a program that you do not yet know how to execute. It is also used by experienced programmers to describe a program's rough template or outline, which is then fleshed out by one or more developers in actual code. Pseudocode is often even left in the final code as comments, to provide a quick reference to the code's structure as a reminder to the developer, or to someone who is not as familiar with the code.
 
-Here we come to our first bit of Python syntax, the all-important comment. You specify a comment by starting a line with '#', which tells Python to ignore everything on that line after the '#' symbol. Try typing the following lines code into a new file and executing it with Python:
+Here we come to our first bit of Python syntax, the all-important 'comment'. You specify a comment by starting a line with '#', which tells Python to ignore everything on that line *after* the '#' symbol. Try typing the following lines code into a new file and executing it with Python:
 
 ```python
 #this is a comment
 print 'this is code' #this is also a comment
 ```
 
-If you run this code through the interpreter, you can see that it prints out 'this is code' because it executes the line "print 'this is code'". Meanwhile it ignores both comments occurring after the '#' symbol. Although every language denotes them differently, comments are an important part of every programming language, as they allow the developer to add extra information and description to their code which is not strictly related to its execution.
+If you run this code through the interpreter, you can see that it prints out 'this is code' because it executes the line `print 'this is code'`. Meanwhile it ignores both comments occurring after the '#' symbol. Although every language specifies them differently, comments are an important part of every programming language, as they allow the developer to add extra information and description to their code which is not strictly related to its execution.
 
 Now that we know the basics, let's dive into the 5 fundamental elements of any computer program:
 
@@ -68,7 +68,7 @@ print type(True)
 print type('blueberries')
 ```
 
-you can see that it prints the four types described above. Notice also the particular way in which the data must be written so that Python does not confuse it with the name of a variable. Number can be written directly because you cannot name variables with only a number. Booleans must be written capitalized (True or False) as these are reserved key words in Python (notice the syntax coloring). Strings are always contained within quotes. You can use single (') or double (") quotes, but they must match on either side of the string. If you try to write
+you can see that it prints the four types described above. Notice also the particular way in which the data must be written so that Python does not confuse it with the name of a variable. Numbers can be written directly because you cannot name variables with only a number. Booleans must be written capitalized (True or False) as these are reserved key words in Python (notice the syntax coloring). Strings are always contained within quotes. You can use either single (') or double (") quotes, but they must match on either side of the string. If you try to write
 
 ```python
 print type(blueberries)
@@ -89,7 +89,7 @@ print type(blueberries)
 
 it will tell you it's an int because 'blueberries' is now a variable with an int stored inside of it.
 
-In Python, many operators are 'over-loaded', which means that they function differently depending on the data structure that they are used on. For instance, if we type
+In Python, many operators are 'over-loaded', which means that they function differently depending on the data type that they are used on. For instance, if we type
 
 ```python
 print 2 + 2
@@ -101,14 +101,14 @@ we get '4'. When given two numbers, the '+' operator performs arithmetic additio
 print 'First ' + 'Last'
 ```
 
-we get 'First Last'. When given two strings, the '+' operator 'concatenates' or merges them together into one string. Over-loading is useful because it produces clean and readable code without having a special function for each type of variable. You have to be careful, however, because mismatching different types of variable can lead to errors. For instance, this line
+we get 'First Last'. When given two strings, the '+' operator 'concatenates' or merges them together into one string. Over-loading is useful because it produces clean and readable code without having a special function for each type of variable. You have to be careful, however, because mismatching different types of variables can lead to errors. For instance, this line
 
 ```python
 numBerries = 5
 print 'Number of Blueberries: ' + numBerries
 ```
 
-will produce an error because it is trying to perform a concatenation of a string and an integer. Instead, you can use the int() function to convert the 5 to a string before using it with the '+' operator.
+will produce an error because it is trying to perform a concatenation of a string and an integer. Instead, you can use the str() function to convert the 5 to a string before using it with the '+' operator.
 
 ```python
 numBerries = 5
@@ -119,8 +119,8 @@ print 'Number of Blueberries: ' + str(numBerries)
 
 In addition to storing single pieces of data, you can also use variables to store many pieces of data, and then access them in a structured way. There are two basic types of multi-part variables:
 
-- lists (also called arrays) and
-- dictionaries (also called key-value pairs)
+- lists (sometimes called arrays)
+- dictionaries (sometimes called key-value pairs)
 
 A list can be created by using square brackets, and separating individual elements by commas like so:
 
@@ -182,7 +182,7 @@ print numbers
 
 For other list functions you can refer to the [Python documentation](https://docs.python.org/2/tutorial/datastructures.html#more-on-lists).
 
-Lists are extremely useful for storing multiple pieces of data within a specifc sequence. However, sometimes you want to be able to recall a piece of data without knowing its exact position in a list. For this you can use dictionaries. Dictionaries store multiple pieces of data by tying them to unique keys. You can then use the keys to recall the data. For this reason, dictionaries are often called *key-value pairs*.
+Lists are extremely useful for storing multiple pieces of data within a specifc sequence. However, sometimes you want to be able to recall a piece of data without knowing its exact position in a list. For this you can use dictionaries. Dictionaries store multiple pieces of data by tying them to unique keys. You can then use the keys to recall the data. For this reason, dictionary entries are often called *key-value pairs*.
 
 To create a dictionary, you use curly braces, separating keys and values with ':', and multiple entries with ',':
 
@@ -190,14 +190,14 @@ To create a dictionary, you use curly braces, separating keys and values with ':
 dict = {'a': 1, 'b': 2, 'c': 3}
 ```
 
-In this dictionary, the integers 1, 2, and 3 are tied to their unique keys, 'a', 'b', and 'c'. Note that keys must be strings, while values can be any data type. To retrieve a piece of data from this dictionary, I can again use the square bracket notation, this time passing in a key instead of an index:
+In this dictionary, the integers 1, 2, and 3 are tied to their unique keys, 'a', 'b', and 'c'. Note that keys must be strings, while values can be any data type. To retrieve a piece of data from this dictionary, you can again use the square bracket notation, this time passing in a key instead of an index:
 
 ```python
 dict = {'a': 1, 'b': 2, 'c': 3}
 print dict['a']
 ```
 
-To add entries to a dictionary, you just have to specify the data that relates to a particular key using the same square bracket syntax:
+To add entries to a dictionary, you just have to specify the data that relates to a particular key using the '=' operator and the same square bracket syntax:
 
 ```python
 dict = {'a': 1, 'b': 2, 'c': 3}
@@ -223,7 +223,7 @@ print dict.keys()
 
 For other useful functions you can refer to the proper place in [the documentation](https://docs.python.org/2/tutorial/datastructures.html#dictionaries).
 
-Finally, values within lists and dictionaries are not restricted to being single pieces of data either, and can be lists and dictionaries as well. This allows you to build highly sophisticated data structures that match the needs of any project. You can access items within such a hierarchical structure by chaining together requests with square brackets. Here is an example:
+Finally, values within lists and dictionaries are not restricted to being single pieces of data either, and can be lists and dictionaries as well. This allows you to build highly sophisticated data structures that can match the needs of any project. You can access items within such a hierarchical structure by chaining together requests with square brackets. Here is an example:
 
 ```python
 dict = {}
@@ -238,4 +238,4 @@ dict['fruits'].append({'berries':['strawberries', 'blueberries']})
 print dict['fruits'][-1]['berries'][1]
 ```
 
-JSON, one of the most wide spread and easiest to work with data formats is actually based on this concept of nested lists and dictionaries, and has great support within almost every programming language, including Python and JavaScript. We will start to implement it later in the course, but for now you can check out its documentation here: [http://json.org/](http://json.org/).
+JSON, one of the most implemented and easiest to work with data formats, is actually based on this concept of nested lists and key-value pairs, and has great support within almost every programming language, including Python and JavaScript. We will start to implement it later in the course, but for now you can check out its documentation here: [http://json.org/](http://json.org/).
