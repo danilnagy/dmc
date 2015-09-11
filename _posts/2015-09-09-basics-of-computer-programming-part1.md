@@ -10,14 +10,14 @@ If you've never written code, or done any computer programming, the whole concep
 
 In separating the basic principles and structure of code from the syntax of a particular language, one useful concept is [pseudocode](https://en.wikipedia.org/wiki/Pseudocode). Pseudocode is the description of a program's basic functionality through natural language, which is translated later to actual syntax. This is useful when you are learning a language to describe features of a program that you do not yet know how to execute. It is also used by experienced programmers to describe a program's rough template or outline, which is then fleshed out by one or more developers in actual code. Pseudocode is often even left in the final code as comments, to provide a quick reference to the code's structure as a reminder to the developer, or to someone who is not as familiar with the code.
 
-Here we come to our first bit of Python syntax, the all important comment. You specify a comment by starting a line with '#', which tells Python to ignore everything on that line after the '#' symbol. Try typing the following lines code into a new file and executing it with Python:
+Here we come to our first bit of Python syntax, the all-important comment. You specify a comment by starting a line with '#', which tells Python to ignore everything on that line after the '#' symbol. Try typing the following lines code into a new file and executing it with Python:
 
 ```python
 #this is a comment
 print 'this is code' #this is also a comment
 ```
 
-If you run this code through the interpreter, you can see that it prints out 'this is code' because it executes the line "print 'this is code'". Meanwhile it ignores both comments occuring after the '#' symbol. Although every language denotes them differently, comments are an important part of every programming language, as they allow the developer to add extra information and description to their code which is not strictly related to its execution.
+If you run this code through the interpreter, you can see that it prints out 'this is code' because it executes the line "print 'this is code'". Meanwhile it ignores both comments occurring after the '#' symbol. Although every language denotes them differently, comments are an important part of every programming language, as they allow the developer to add extra information and description to their code which is not strictly related to its execution.
 
 Now that we know the basics, let's dive into the 5 fundamental elements of any computer program:
 
@@ -50,7 +50,7 @@ In Python, you can name your variables anything, as long as it starts with a let
 
 withCamelCaseTheFirstWordIsLowerCaseWhileAllSubsequentWordsAreUpperCase
 
-It is also common to substitute underscores ('_') for spaces in variable names. In general, variable names should not be too long, but should err on the side of decription rather than brevity to facilitate the code's readability. For instance, if you are keeping track of the number of blueberries, it is better to call the variable 'numBlueberries' than simply 'n' or 'b'. 
+It is also common to substitute underscores ('_') for spaces in variable names. In general, variable names should not be too long, but should err on the side of description rather than brevity to facilitate the code's readability. For instance, if you are keeping track of the number of blueberries, it is better to call the variable 'numBlueberries' than simply 'n' or 'b'. 
 
 Variables can hold data of different types. Although Python does not make you explicitly declare the type of data you will be using, it is important to know the types because they will each behave differently in your code. Although there are many different types of data supported by Python, the most common are:
 
@@ -87,7 +87,7 @@ blueberries = 5
 print type(blueberries)
 ```
 
-it will tell you it's an int beause 'blueberries' is now a variable with an int stored inside of it.
+it will tell you it's an int because 'blueberries' is now a variable with an int stored inside of it.
 
 In Python, many operators are 'over-loaded', which means that they function differently depending on the data structure that they are used on. For instance, if we type
 
@@ -142,10 +142,10 @@ print fruits[1]
 Notice that like in all languages, counting begins with '0', so if you want the first item in a list you use [0], the second item [1], and so on. Unlike many other languages, Python will allow you to mix different types of data within a single list, so something like this is perfectly legal:
 
 ```python
-fruitsAndNubers = ['apples', 2, 'bananas']
-print type(fruitsAndNubers)
-print type(fruitsAndNubers[0])
-print type(fruitsAndNubers[1])
+fruitsAndNumbers = ['apples', 2, 'bananas']
+print type(fruitsAndNumbers)
+print type(fruitsAndNumbers[0])
+print type(fruitsAndNumbers[1])
 ```
 
 You can also use a ':' within the square brackets to obtain a range of values from a list, which will form a new list:
@@ -156,7 +156,7 @@ newNumbers = numbers[0:3] # [index of first item:index after last item]
 print newNumbers
 ```
 
-You can even index backwards using negative indeces. For instance, this will print out the last item in the list:
+You can even index backwards using negative indices. For instance, this will print out the last item in the list:
 
 ```python
 numbers = [1, 2, 3, 4, 5]

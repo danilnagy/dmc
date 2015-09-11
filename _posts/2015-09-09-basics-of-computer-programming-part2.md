@@ -21,7 +21,7 @@ if b:
 
 Here, since b is in fact True, it passes the test, causing the code that is inset after the 'if b:' line to execute. Try to run the code again, this time setting b to False to see that nothing happens. In this case, if b does not pass the test, the entire block of inset code after the first conditional line is skipped over and ignored. In this case, 'if b:' is shorthand for 'if b is True:'. If you want to test for Falseness, you would have to write the full 'if b is False:'.
 
-In Python, a line ending with a ':' followed by inset lines of code is a basic syntex for creating hierarchical structure, and is used with all higher codes structures including conditionals, loops, functions, and objects. The trick is that Python is very particular about how these insets are specified. You have the option of using TABS or a series of spaces, although you cannot mix and match, and you have have to be very explicit about the number of each that you use based on the level of the structure. For instance, this code:
+In Python, a line ending with a ':' followed by inset lines of code is a basic syntax for creating hierarchical structure, and is used with all higher codes structures including conditionals, loops, functions, and objects. The trick is that Python is very particular about how these insets are specified. You have the option of using TABS or a series of spaces, although you cannot mix and match, and you have to be very explicit about the number of each that you use based on the level of the structure. For instance, this code:
 
 ```python
 b = False
@@ -59,7 +59,7 @@ IndentationError: unexpected indent
 
 which means that something is wrong with your indenting. In this case you have indented to a level that does not exist in the code structure. Such errors are extremely common and can be quite annoying, since they may come either from improper indentation, mixing spaces with TABs or both. On the bright side, this focus on proper indenting enforces a visual clarity with Python scripts that is often missing in other languages.
 
-Moving on, if a conditional test does not pass and the first block of code is passed over, it can be caught by an 'else' statment:
+Moving on, if a conditional test does not pass and the first block of code is passed over, it can be caught by an 'else' statement:
 
 ```python
 b = True
@@ -193,7 +193,7 @@ while i < 5:
 	i += 1
 ```
 
-In this case, the loop will keep going while it's condition is satisfied, and only stop once the variable 'i' obtains a value greater or equal to 5. This type of loop can be useful if you do not know know how long the loop should be run for, or if you want to make the termination criteria somehow dynamic relative to other activities within the script. It requires a bit more setup, however, as the value tested must first be initialized (i = 0), and there has to be code within the loop which changes that value in such a way that it eventually meets the exit criteria. This type of loop is also more dangerous, because it can easily create a situation where the loop can never exit. In theory, such a loop will run indefinitely, although in practice it will most certainly cause Python to crash. The most dangerous kind of loop is also the simplest:
+In this case, the loop will keep going while it's condition is satisfied, and only stop once the variable 'i' obtains a value greater or equal to 5. This type of loop can be useful if you do not know how long the loop should be run for, or if you want to make the termination criteria somehow dynamic relative to other activities within the script. It requires a bit more setup, however, as the value tested must first be initialized (i = 0), and there has to be code within the loop which changes that value in such a way that it eventually meets the exit criteria. This type of loop is also more dangerous, because it can easily create a situation where the loop can never exit. In theory, such a loop will run indefinitely, although in practice it will most certainly cause Python to crash. The most dangerous kind of loop is also the simplest:
 
 ```python
 while True:
