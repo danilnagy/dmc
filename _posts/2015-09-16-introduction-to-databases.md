@@ -8,7 +8,7 @@ Now that we know that basics of writing code in Python, we can start the actual 
 
 Databases can come in a variety of structures. One of the most basic is a table, such as the ones used within Excel. Typically, each row in a table represents a piece of data, and each column represents a specific property of that data. Because the columns are hard wired into the tables, each piece of data needs to share the same property, and it is very difficult to add or delete properties once a table has been started. 
 
-[graphic of table]
+![table database](/dmc/images/db01.png)
 
 Despite these limitations, traditional tables are still widely used in data management applications today. Traditionally, these databases are termed 'relational'. For large data applications, a special language was developed called 'Structured Query Language' or [SQL](https://en.wikipedia.org/wiki/SQL), which has commands for searching and retrieving (querying) data from the database.
 
@@ -16,11 +16,11 @@ To address some of the limitations of relational databases, and to accommodate t
 
 A very popular type of NoSQL database is known as a ['document-oriented database'](https://en.wikipedia.org/wiki/Document-oriented_database), which organizes the database as a loose collection of 'documents', with each piece of data represented by a single document. These documents do not necessarily have to have the structure, allowing different pieces of data to have different properties. Because this type of database does not have to start with a predefined '[schema](https://en.wikipedia.org/wiki/Database_schema)' of property, it is often called a schema-free database. One very popular document-based database is [MongoDB](https://www.mongodb.org/) which is widely used in many web applications today.
 
-[graphic of document db]
+![document database](/dmc/images/db02.png)
 
 Another exciting kind of NoSQL database is a ['graph database'](https://en.wikipedia.org/wiki/Graph_database), which can store not only individual data points, but information about how those data relate to each other and how they interconnect. One early graph database which has become quite popular is [Neo4J](http://neo4j.com/). 
 
-[graphic of graph db]
+![graph database](/dmc/images/db03.png)
 
 Although GIS applications have traditionally used relational, table-style databases, there are many potential advantages to using a NoSQL database. Although tables are great at storing well curated, government-provided geographic data, as urban analysts embrace more 'messy' data such as that found on the internet they will need tools that can handle a large steady stream of data that does not necessarily conform to a predefined schema. 
 
