@@ -26,7 +26,16 @@ On its own, this code will only define what the function does, but will not actu
 print addFunction(2)
 ```
 
-A function's definition begins with the keyword 'def'. After this is the function's name, which follows the same naming conventions as variables. Inside the parenthesis after the function name you can place any number of input variables, which will be passed to the function when it is called, and are available within the body of the function. The first line ends with a colon, which should be familiar by now, with the rest of the function body inset from the first line. Optionally, if you want to return a value from the function back to the main script, you can end the function with the keyword 'return', followed by the value or variable you want to return. Once the function hits on a return statement, it will skip over the rest of the body and return the associated value. This can be used to create more complex behavior within the function:
+A function's definition begins with the keyword 'def'. After this is the function's name, which follows the same naming conventions as variables. Inside the parenthesis after the function name you can place any number of input variables, which will be passed to the function when it is called, and are available within the body of the function. When you call a function, you can either directly pass values or pass variables that have values stored inside of them. For example, this code will call the function in the same way:
+
+```python
+var = 2
+print addFunction(var)
+```
+
+Here the value of the 'var' variable, which in this case is 2, is being passed to the 'addFunction' function, and is then available within that function through the 'inputNumber' variable. Notice that the names of the two variables 'var' and inputNumber' don't have to match. When a value gets passed to a function it forms a direct connection between the two sets of parenthesis which carries the data. In this case 'var' is a *global variable* that stores the value '2' in the main script, while 'inputNumber' is a *local variable* which stores that value only for the duration of that function. In this way functions 'wrap up' specific tasks and all the data that is necessary to execute that task to limit the number of global variables necessary in the main function.
+
+The first line declaring the function and its inputs ends with a colon, which should be familiar by now, with the rest of the function body inset from the first line. Optionally, if you want to return a value from the function back to the main script, you can end the function with the keyword 'return', followed by the value or variable you want to return. Once the function hits on a return statement, it will skip over the rest of the body and return the associated value. This can be used to create more complex behavior within the function:
 
 ```python
 def addFunction(inputNumber):
@@ -146,4 +155,4 @@ print myNewCounter.getCount()
 
 When the class instance is initialized, it will automatically run the `__init__()` method, which will utilize any variable passed into it during initialization. Notice how we still have to initialize the local variable with a value in the class definition, which is then replaced during the `__init__()` method. `__init__()` is one of a series of special methods that classes can implement to achieve different functionality. The rest of these are beyond the scope of this class, but you can find a more thorough description of these, as well as other aspects of classes, in the [Python documentation](https://docs.python.org/2/tutorial/classes.html).
 
-This concludes our very basic overview of Python and the fundamental elements of computer programming. To test your knowledge, please clone the [week-1 repository from Github]() and complete the programming assingment by working directly in the 'week-1.py' file. This assignment will test your knowledge of some of the basic ideas covered in this week's tutorials. Make sure to submit a pull request on your completed assignment before the deadline.
+This concludes our very basic overview of Python and the fundamental elements of computer programming. To test your knowledge, please clone the [week-1 repository from Github]() and complete the programming assignment by working directly in the 'week-1.py' file. This assignment will test your knowledge of some of the basic ideas covered in this week's tutorials. Make sure to submit a pull request on your completed assignment before the deadline.
