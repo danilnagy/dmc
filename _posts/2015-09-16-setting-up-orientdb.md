@@ -6,7 +6,9 @@ tags:
 - orientdb
 ---
 
-To start working with OrientDB, go to [http://orientdb.com/](http://orientdb.com/) and click on the 'Download' button on the top right of the screen. Download the latest version of the database for your platform. When the file is finished downloading, unzip it and put the resulting folder somewhere in your file system (such as /My Documents/). Since the whole database runs completely in Java, there is no installation procedure, and the database can be used directly from the unzipped folder.
+To start working with OrientDB, go to [http://orientdb.com/](http://orientdb.com/) and click on the 'Download' button on the top right of the screen. Although you can try the latest version, you could run into compatibility problems in the next tutorial when we use the pyorient library for communicating between Python and OrientDB. To be safe, click the 'Download a Previous version' link after the current version or go directly to the [previous version download page](http://orientdb.com/download-previous/). Here you can download OrientDB version 2.1.0 which was used to create these tutorials and has been tested on both Windows and OSX. 
+
+When the file is finished downloading, unzip it and put the resulting folder somewhere in your file system (such as /My Documents/). Since the whole database runs completely in Java, there is no installation procedure, and the database can be used directly from the unzipped folder.
 
 All of the commands that control the running of the database can be found in the /bin folder within the main OrientDB folder. To start the server, open a command prompt or terminal within this folder (remember Shift+right-click on windows to start a terminal in a folder, or navigate there manually). If you are using Windows, type in
 
@@ -20,7 +22,17 @@ and hit Return. If you are using OSX or Linus type
 server.sh
 ```
 
-This will start the server, and will give you feedback on what the server is doing in the terminal window. **Do not close* this window while the server is running. This will cause the server to stop, and can lead to loss of data from not properly shutting down the server. To shut down the server, open another terminal window in the /bin directory, run the `shutdown.bat` or `shutdown.sh` command, and verify that the first window says that shutdown was completed.
+This will start the server, and will give you feedback on what the server is doing in the terminal window. If you are using OSX and don't have the latest Java Development Kit (JDK) installed, you will be prompted to install it before you can use the database:
+
+![OrientDB](/dmc/images/orientdb07.png)
+
+![OrientDB](/dmc/images/orientdb08.png)
+
+Click the "More Info..." button to go to the Java site and install the latest JDK available for your operating system:
+
+![OrientDB](/dmc/images/orientdb09.png)
+
+**Do not close* this window while the server is running. This will cause the server to stop, and can lead to loss of data from not properly shutting down the server. To shut down the server, open another terminal window in the /bin directory, run the `shutdown.bat` or `shutdown.sh` command, and verify that the first window says that shutdown was completed.
 
 A full coverage of OrientDB is beyond the scope of this class, since we will mostly be importing and querying existing databases. For more thorough tutorials and descriptions of features you can consult the [OrientDB documentation](http://orientdb.com/docs/last/). You can also do the free [Getting Started Course](http://orientdb.com/getting-started/) on [Udemy](https://www.udemy.com/orientdb-getting-started/), which will teach you all the basics of working with the OrientDB.
 
