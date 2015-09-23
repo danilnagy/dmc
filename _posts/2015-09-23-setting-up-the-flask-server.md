@@ -36,7 +36,9 @@ from flask import render_template
 
 Notice we are not importing the whole library but only the one class that we need from it. Importing only the classes you need is a common strategy to simplify code and minimize overhead when working with large libraries. Next, create a variable to store an instance of the Flask class:
 
+```python
 app = Flask(__name__)
+```
 
 Using this variable we can access the server and specify how the server should handle incoming requests. To start with, we will create one route, which will handle requests coming into the main path of the server. On a new line type:
 
