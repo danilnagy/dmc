@@ -130,4 +130,16 @@ Notice that we have also moved the "position" and "z-index" properties to this s
 
 As mentioned earlier, inline CSS styling can be useful for experimenting with assigning styles to individual elements, but it is good practice to combine them within a single `<style>` section of the .html document or even in a separate .css file. This makes it easier to track the formatting of the entire web page, and forces you to be more methodical in how elements are layed out by creating different classes for different pieces of the layout, and associating styling rules with those classes.
 
+Finally, we can emphasize this interaction by changing the styling of the circle when the user hovers over it. To do this, CSS supports [various selectors](http://www.w3schools.com/cssref/css_selectors.asp) that respond to the position of the mouse cursor relative to an object. This works like the event handlers we saw earlier, but they can be used with any object type to change the appearance of the object when the user clicks or hovers over it. To implement the hover selector for the circles, type the following style rule into the `<style>` section of the document, directly below the main 'circle' rule:
+
+```css
+circle:hover {
+  	stroke: black;
+  	stroke-width: 2px;
+  	cursor: crosshair;
+}
+```
+
+We assign the selector by adding it to the object reference with a ':'. This will assign parameters to the circle objects when the mouse 'hovers' over them. Here we add a black outline to the circle, and also change the [mouse cursor](http://www.w3schools.com/cssref/pr_class_cursor.asp) to a crosshair icon. When the mouse leaves the object, it will revert back to it's base style.
+
 This concludes our implementation of a basic tooltip, which shows a very simple example of using JavaScript and D3 to create user interaction in our interface. You can now try to extend this basic example by changing the styling of the tooltip, the data it presents, and even try implementing [other user events](http://www.w3.org/TR/SVG/interact.html).
