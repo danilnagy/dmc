@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  Server/Client communication
+title:  Server/Client communication (passing arguments)
 date:   2015-09-30 03:00:00
 tags:
 - html
