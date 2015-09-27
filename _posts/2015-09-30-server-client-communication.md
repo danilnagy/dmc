@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  Server/Client communication with Arguments
+title:  Client->Server communication with Arguments
 date:   2015-09-30 03:00:00
 tags:
 - html
@@ -8,7 +8,7 @@ tags:
 - python
 ---
 
-Now that we have several ways to capture user intraction and have users drive the functionality of our Web Stack, we need a better way to handle communication between the client and the server. Currently, our communication is limited to only executing functions written on the server. However, we have no way of sending any other information to the server to control how this function is executed. For example, we are able to call a function to get data from the database, but we can't tell the server exactly what data we want. In our immediate case, it would be great if we can get the range of latitude and longitude coordinates currently presented on the screen, and send those to the server when we execute the function so it can return all of the data points within that range.
+Now that we have several ways to capture user interaction and have users drive the functionality of our Web Stack, we need a better way to handle communication between the client and the server. Currently, our communication is limited to only executing functions written on the server. However, we have no way of sending any other information to the server to control how this function is executed. For example, we are able to call a function to get data from the database, but we can't tell the server exactly what data we want. In our immediate case, it would be great if we can get the range of latitude and longitude coordinates currently presented on the screen, and send those to the server when we execute the function so it can return all of the data points within that range.
 
 If we were just working in Python, we would be able to pass this information as inputs into the function. Since we are now dealing with a distributed framework between the JavaScript client and the Python server, however, passing such information is a bit more complicated. To handle this kind of communication, HTTP allows you to attach a list of extra parameters, known as a [query string](https://en.wikipedia.org/wiki/Query_string), to the end of a request. You may have already seen such parameters in the address bar of your web browser. For instance, if you use Google to search for the term 'javascript', the address bar might change to something like this:
 
@@ -24,7 +24,7 @@ https://www.google.com/?q=javascript&maxresults=100
 
 This query string has two arguments: 'q' which stores the search term, and 'maxresults' which stores the maximum number of results to return. 
 
-To improve the capabilities of our Web Stack, we will use a query string attached to our `/getData` request to pass information about the exact range of latitude and longitude we want to retreive from the database based on the current limits of the map. Before we can do this, however, we must first find this range by getting the bounds of our map from Leaflet. Switch to the `02-creating-ui-elements` branch in the ['week-4’](https://github.com/data-mining-the-city/week-4) repository and open the `index.html` file inside the '/template' folder. Within the `updateData()` function, before the line that runs the `d3.json` method, let's create a new variable to store the current map bounds:
+To improve the capabilities of our Web Stack, we will use a query string attached to our `/getData` request to pass information about the exact range of latitude and longitude we want to retreive from the database based on the current limits of the map. Before we can do this, however, we must first find this range by getting the bounds of our map from Leaflet. Switch to the `03-communication` branch in the ['week-4’](https://github.com/data-mining-the-city/week-4) repository and open the `index.html` file inside the '/template' folder. Within the `updateData()` function, before the line that runs the `d3.json` method, let's create a new variable to store the current map bounds:
 
 ```javascript
 var mapBounds = map.getBounds();
