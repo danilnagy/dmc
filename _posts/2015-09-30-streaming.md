@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  Server->Client streaming using Server-Sent Events (SSE)
+title:  Server -> Client streaming using Server-Sent Events (SSE)
 date:   2015-09-30 03:30:00
 tags:
 - html
