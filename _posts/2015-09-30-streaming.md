@@ -95,12 +95,12 @@ This creates two new variables. The 'eventOutputContainer' variable stores a ref
 
 ```javascript
 eventSrc.onmessage = function(e) {
-	console.log('data received: ' + e.data);
+	console.log(e);
 	eventOutputContainer.innerHTML = e.data;
 };
 ```
 
-With this code we are specifying what should happen when the 'eventSrc' variable, which is storing a reference to our 'EventSource' object receives an event and triggers its `.onmessage()` method. In this case we will use an anonymous function to put the message we receive in the temporary variable 'e'. We will then log this data to the JavaScript console, which will help us to debug by showing the data we receive directly in the console. Finally, we will display the message on the website by referencing the 'eventOutputContainer' we linked earlier to the `<em>` container on our site, and setting its text content to the message we receive. With SSE, the actual data returned (and in our case stored in the 'e' variable), is an object of type 'EventSource'. This object contains alot of information related to the message which in some cases could be useful. In our case we only want the actual text content of the message being sent, which we can access through the `.data` portion of the 'e' variable.
+With this code we are specifying what should happen when the 'eventSrc' variable, which is storing a reference to our 'EventSource' object receives an event and triggers its `.onmessage()` method. In this case we will use an anonymous function to put the message we receive in the temporary variable 'e'. We will then log this data to the JavaScript console, which will help us to debug by showing the data we receive directly in the console. Finally, we will display the message on the website by referencing the 'eventOutputContainer' we linked earlier to the `<em>` container on our site, and setting its text content to the message we receive. With SSE, the actual data returned (and in our case stored in the 'e' variable), is an object of type 'EventSource'. This object contains alot of information related to the message which in some cases could be useful. If you are curious youu can investigate the data returned by going to the Console and finding where the data was logged. In our case we only want the actual text content of the message being sent, which we can access through the `.data` portion of the 'e' variable.
 
 This completes the changes we need to make the client side code in `index.html` in order to implement SSE communication between our server and client. One last thing we might want to do is add some custom styling to the `<em>` tag to give our message text an even bolder appearance. In the `<style> </style>` section of the `index.html` document, add a new style rule:
 
