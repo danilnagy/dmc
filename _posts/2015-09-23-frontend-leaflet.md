@@ -25,7 +25,7 @@ Open the `index.html` file in the templates folder. This file contains a basic h
 <script type="text/javascript" src="./static/lib/leaflet.js"></script>
 ```
 
-under the d3 import statement. In addition to the .js file, Leaflet also requires us to import a custom .css file that defines how certain features of the map is laid out. [CSS](https://en.wikipedia.org/wiki/Cascading_Style_Sheets) is a styling language that provides a quick way for specifying the 'look and feel' of HTML components. This way, you do not have to specify parameters such as color, size, or font for each element in a website. Instead, you just specify those parameters globally in a CSS 'stylesheet', and they will apply to each element contained within a specific tag. Import the Leaflet stylesheet by typing
+withing the `<head>` section under the d3 import statement. In addition to the .js file, Leaflet also requires us to import a custom .css file that defines how certain features of the map is laid out. [CSS](https://en.wikipedia.org/wiki/Cascading_Style_Sheets) is a styling language that provides a quick way for specifying the 'look and feel' of HTML components. This way, you do not have to specify parameters such as color, size, or font for each element in a website. Instead, you just specify those parameters globally in a CSS 'stylesheet', and they will apply to each element contained within a specific tag. Import the Leaflet stylesheet by typing
 
 ```html
 <link rel="stylesheet" href="./static/lib/leaflet.css"/>
