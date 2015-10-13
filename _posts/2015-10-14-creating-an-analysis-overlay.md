@@ -16,7 +16,7 @@ The class of models we will explore in this class fall under the category of ['M
 
 Since many applications in [geospatial analysis](https://en.wikipedia.org/wiki/Geospatial_analysis) deal with predicting the values of certain properties over space, it is helpful to have a standard geometry that we can use to visualize these values. For this purpose it is common to use a regular square grid, which creates an 'overlay' over the map to visualize the data at a given resolution. To create this overlay, we first train the model using a finite set of data points within our study area. Then, the coordinates of each cell in the regular grid overlay are fed into the model, and the value is predicted for each grid location. Then, the color of each cell can be used to represent the value, creating a visualization of the value across the space.
 
-[diagram showing interpolation]
+![grid](/dmc/images/grid01.png)
 
 In this tutorial we will build a graphic overlay within our client side code and connect it to our back end server so it can send information about the data to be visualized. We will then use this overlay to visualize the results of data processing and Machine Learning applications in later tutorials. Switch to the `02-analysis-overlay` branch in the ['week-5’](https://github.com/data-mining-the-city/week-5) repository. This branch contains our current implementation of the Web Stack, including the refactoring work done in the previous tutorial. 
 
@@ -52,6 +52,8 @@ request = "/getData?lat1=" + lat1 + "&lat2=" + lat2 + "&lng1=" + lng1 + "&lng2="
 ```
 
 The first line specifies that we want each square in the grid to be 25 pixels in size. The next two lines use the handy `window.innerWidth` and `window.innerHeight` functions to get the current width and height of the browser window and store them in two new variables. We will use these variables to tell the server how big to make our grid. We will also use them later to resize the `svg_overlay` element so that it always matches the dimensions of our screen. Finally, we append these three variables to the query string of our request to send this information to server.
+
+![grid](/dmc/images/grid02.png)
 
 Now that the client end is sending the proper information, let's go to the server end to implement how the analysis overlay grid will actually be created. Open the `app.py` file from the main repository directory in a text editor. In the declarations area at the top of the file, let's import the 'math' library, which contains some useful functions for calculating the size of our grid. Find the line that reads:
 
@@ -103,6 +105,8 @@ numH = int(math.floor(h/cell_size))
 
 To get the number of cells in the grid along the width and height of the screen, we divide the total width and height of the screen (stored in the 'w' and 'h' variables) by the target size of each cell. Since this division will probably not result in a whole number, we use the `math.floor()` function from [python's math library](https://docs.python.org/2/library/math.html#math.floor) to round the number down to the closest integer. We also wrap the calculation in a int() function to ensure that the data is stored as an integer.
 
+![grid](/dmc/images/grid03.png)
+
 Now we are ready to generate the data for all the cells in our analysis grid. To do this we will use a double loop to iterate through each row in the grid, and each cell within each row:
 
 ```python
@@ -121,13 +125,11 @@ for j in range(numH):
 
 In the outer loop, we are using the `range()` function to create a list of indexes for the rows in our grid (remember that the total number of rows is stored in the numH variable). The inner loop is doing the same thing but along the other dimension of the grid. So, for each iteration of the outer row loop, the inner loop iterates over each cell in that row. While we are within both of these loops, the 'j' variable stores the index of the current row, while the 'i' variable stores the index of the current column. We can use these variables to generate the data for each cell in the grid. 
 
-[iteration drawing]
+![grid](/dmc/images/grid04.png)
 
-Within the double loop, we create a new dictionary for each cell which will store all the data for that cell, including its location, size, and value for visualization. To store the location, we add new 'x' and 'y' keys to the dictionary, and calculate the position of each cell based on the size of the cells, and the position of the current cell.
+Within the double loop, we create a new dictionary for each cell which will store all the data for that cell, including its location, size, and value for visualization. To store the location, we add new 'x' and 'y' keys to the dictionary, and calculate the position of each cell based on the size of the cells, and the position of the current cell. For the size, we add new 'width' and 'height' keys that store the dimensions of the cell. For visualization purposes, we will set the size to one pixel less than what was specified. This will create a one pixel boundary between all the cells, and make the individual cells easier to see. Then, we add a 'value' key which will store the value associated with each grid cell. In future tutorials we will implement different analyses which will record this value for each cell. For now, we will set each cell to a constant value. 
 
-[location drawing]
-
-For the size, we add new 'width' and 'height' keys that store the dimensions of the cell. For visualization purposes, we will set the size to one pixel less than what was specified. This will create a one pixel boundary between all the cells, and make the individual cells easier to see. Then, we add a 'value' key which will store the value associated with each grid cell. In future tutorials we will implement different analyses which will record this value for each cell. For now, we will set each cell to a constant value. 
+![grid](/dmc/images/grid05.png)
 
 Finally, once all the data for the cell has been set, we append the cell dictionary to the empty list tied to the "analysis" key in the "output" dictionary we specified earlier. Now, when the "outuput" dictionary is returned to the client on the final line of the `getData()` function, the grid information will be sent along with the information about the property listings.
 
