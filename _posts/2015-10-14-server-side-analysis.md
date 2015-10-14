@@ -142,7 +142,7 @@ _Description of Gaussian function from [Wikipedia](https://en.wikipedia.org/wiki
 
 In the Gaussian function, the 'a' constant controls the height of the curve, which we arbitrarily set as 2 (since we will eventually normalize all the values we only care about relative values, not the total amount). The 'b' constant controls the center of the peak of the curve, which we keep at 0 to make sure that the heat is centered around the feature point. The 'c' constant controls the width of the curve, which we set to be a multiple of the 'spread' variable. This will allows to control the diffusion of heat in the heatmap by changing this 'spread' variable. As the 'x' variable in the function, we pass the distance between each grid cell (represented by i and j) and the record feature (represented by pos_x and pos_y), which is calculated by the `point_distance` helper function we wrote earlier. We then increment the  value of the current grid cell (represented by `grid[j][i]`) by the value coming out of the function using the '+=' operator. For the purpose of this class, you do not have to understand how the Gaussian function works, but you should understand how you can tweak its parameters to create different distributions of heat in the heatmap based on the density of the features in the dataset.
 
-![grid](/dmc/images/grid06.png)
+![grid](/dmc/images/grid07.png)
 
 Once we iterate over all the records and add heat to the affected grid cells, we will use the `normalizeArray()` helper function we wrote previously to normalize the whole 'grid' list to make sure that the lowest value in the analysis grid will be 0 and the highest value will be 1. On the following line, type:
 
