@@ -8,4 +8,132 @@ tags:
 - python
 ---
 
-Server-side analysis
+Now that we have our overlay grid working, let's implement some analysis on the server and visualize it using the grid. The analysis we will implement is a basic point density [heatmap](http://stackoverflow.com/questions/2343681/algorithm-for-heat-map). This type of heatmap represents the relative density of points across space. When used with an analysis grid, it works by having each data point contribute to the 'heat' value of the grid points around it, relative to its distance to those points. The point density heatmap does not look at any data associated with those points, but only the density of those points in space. Thus it can be used to explore patterns in the overall density in a set of geographic data, but does not reveal any patterns in the values of this data. It can also be easily implemented with math operations using a set of data points and our existing grid, and does not require any complex Machine Learning analysis, which we will come to in the next set of tutorials.
+
+The heatmap analysis will be implemented on the server side of our Web Stack, at the same time that the geometry of the grid is generated. Switch to the `03-server-side-analysis` branch in the ['week-5’](https://github.com/data-mining-the-city/week-5) repository. Now open the `app.py` file from the main repository directory in a text editor. To implement the heatmap, we will need a few math operations that are not included in the basic distribution of Python. So the first thing we will do is write a few helper functions that will perform specific calculations we will need in our implementation. We will implement these functions at the very top of the `app.py` file, right after the import statements and before any other functions. This will ensure that the functions are loaded and available before any other code is run.
+
+The first function will calculate the distance between two points, which we will need to calculate how much 'heat' a sample point applies to the grid cells around it. Find the line that says:
+
+```python
+q = Queue()
+```
+
+_After_ this line, write the following function:
+
+```python
+def point_distance(x1, y1, x2, y2):
+	return ((x1-x2)**2.0 + (y1-y2)**2.0)**(0.5)
+```
+
+This implements the [Pythagorian Theorem](https://en.wikipedia.org/wiki/Pythagorean_theorem) for finding the distance between two points *(x1, y1)* and *(x2, y2)*. The next function will allow us to remap a number from one range to another. On the following lines, write the function:
+
+```python
+def remap(value, min1, max1, min2, max2):
+	return float(min2) + (float(value) - float(min1)) * (float(max2) - float(min2)) / (float(max1) - float(min1))
+```
+
+This implements [a basic formula](http://stackoverflow.com/questions/3451553/value-remapping) for mapping a *value* from the initial range *[min1, max1]* to a target range *[min2, max2]*. The final helper function will take a two dimensional array of values (such as the one representing our analysis grid) and remap the values so that they are in the range *[0, 1]*. This function will ensure that the highest value in the grid is always 1, and the lowest value is always 0, which will allow us to use the same color range for visualization no matter what analysis we're doing. On the following lines, write the function:
+
+```python
+def normalizeArray(inputArray):
+	maxVal = 0
+	minVal = 100000000000
+
+	for j in range(len(inputArray)):
+		for i in range(len(inputArray[j])):
+			if inputArray[j][i] > maxVal:
+				maxVal = inputArray[j][i]
+			if inputArray[j][i] < minVal:
+				minVal = inputArray[j][i]
+
+	for j in range(len(inputArray)):
+		for i in range(len(inputArray[j])):
+			inputArray[j][i] = remap(inputArray[j][i], minVal, maxVal, 0, 1)
+
+	return inputArray
+```
+
+This function takes an array as an input which is assumed to be a two dimensional grid. It then uses a double loop to check each value in this grid. The outer loop iterates over the rows of the grid, and stores the current row index in the variable j. The inner loop iterates over each item in the list, storing the current column index in the variable i. Within this double loop, we can get the value of each grid cell by using the j and i variables as indexes into the two dimensions of the array. As we scan through the grid values, we keep track of the minimum and maximum values, using a process similar to what you implemented in the homework of a [previous tutorial](http://danilnagy.github.io/dmc/2015/09/16/accessing-orientdb-through-python/). To get the maximum value in the grid, we initially set the value of maxVal very low. Then we compare it to each value in the grid, and if the grid value is higher than the current value of maxVal, we set maxVal to that value. This ensures that by the end of the double loop, maxVal is storing the highest value in the whole grid. We do the same thing to find the minimum value by setting the initial value of minVal very high, and replacing it with any lower value we find in the grid. Once we have the minimum and maximum values within the array, we scan through the grid again with the same set of loops, and use our `remap()` helper function to map the value of each cell from the initial range stored in *[minVal, maxVal]* to our new target range of *[0, 1]*.
+
+Now that we have our helper functions, let's implement the actual heatmap calculation. The heatmap works by ...
+
+We will write the code to calculate the heatmap within the `getData()` function, right after the we calculate the dimensions of the analysis overlay grid, and right before we generate the data for the analysis overlay itself. Find the line that reads:
+
+```python
+numW = int(math.floor(w/cell_size))
+numH = int(math.floor(h/cell_size))
+```
+
+These are the lines that calculate the dimensions of the grid. You should add the following code for caculating the heatmap right _after_ these lines.
+
+The first thing we need to do is establish a two dimensional grid array which matches the size of our analysis overlay and will store the heat values of each grid cell. We will then scan over each feature in the map, and adjust the heat values in the cells according to their distance from the features. Finally, we will use this grid to set the values of the cells in our analysis overlay. 
+
+Our grid will use a nested list structure to represent the two dimensions of the grid. The first level will be a list of rows, and each row will itself be a list of all the values in that row. A simple example of a 3x3 grid containing the numbers 1-9 represented in a nested list would be:
+
+```
+[ [1,2,3], [4,5,6], [7,8,9] ]
+```
+
+By adding returns and spaces, it looks like this:
+
+```
+[ 
+	[1,2,3], 
+	[4,5,6], 
+	[7,8,9] 
+]
+```
+
+Which shows the two dimensional list in the grid form we're used to seeing. To create this two dimensional list, we will start by creating an empty list and storing it in the variable 'grid':
+
+```python
+grid = []
+```
+
+We will then create a double loop, similar to what we have seen already, to iterate over each row and column in the grid. On the following lines, write the code:
+
+```python
+for j in range(numH):
+	grid.append([])
+	for i in range(numW):
+		grid[j].append(0)
+```
+
+The outer loop iterates over the rows in the grid. Within this loop, we append a new empty list to the grid variable which represents each row and stores all the values within this row. The innter loop then iterates through all the columns of the grid. Within this loop, we append a value of 0 to the list of the row we are currently working on (indexed by the j variable). This creates a grid of zeros which will store the heat value of each cell in the grid. For a 3x3 grid the resulting list stored in the 'grid' variable would look like this:
+
+```
+[ 
+	[0,0,0], 
+	[0,0,0], 
+	[0,0,0] 
+]
+```
+
+Now, we will iterate over each feature returned from the database, and add 'heat' to the grid cells based on their distance from the feature. On the following lines, add the loop:
+
+```python
+for record in records:
+
+	pos_x = int(remap(record.longitude, lng1, lng2, 0, numW))
+	pos_y = int(remap(record.latitude, lat1, lat2, numH, 0))
+
+	spread = 15
+
+	for j in range(max(0, (pos_y-spread)), min(numH, (pos_y+spread))):
+		for i in range(max(0, (pos_x-spread)), min(numW, (pos_x+spread))):
+			grid[j][i] += 2 * math.exp((-point_distance(i,j,pos_x,pos_y)**2)/(2*5**2))
+```
+
+The first line iterates through all the records stored in the 'records' list, and stores each one in a variable called 'record' so we can reference it within the loop. The next two lines use the `remap()` helper function we defined earlier to figure out the x and y position of the feature point within the analysis grid. We do this by remapping the latitude and longitude of the feature from the initial range represented by the minimum and maximum latitude and longitude of the browser window (stored in the lat1/lat2, lng1/lng2 variables) to the target range represented by the dimensions of the grid (stored in numW and numH). Since latitude increases from top to bottom while the numbering of the grid rows starts from the top, we have to flip the target range. Now the lower latitude values (closer to the bottom of the screen) will be mapped properly to higher row number (which increase toward the bottom of the screen). If you don't do this the analysis will be flipped vertically on the screen.
+
+Now that we have the location of the feature in the grid, we can iterate through the grid and add heat to the cells based on their distance from the feature. To control the effect that distance has on the heat added to the cells of the analysis grid, we create a new variable called 'spread'. This variable can be given a different value for each record, and could be used to control the relative effect that each record has on the heatmap. In our case, we will set this value as a constant 15 for each record, which specifies that each record will affect the grid cells within a radius of 15 grid cells around it. 
+
+Next we create a double loop to iterate over all the grid cells around the record and add heat to the cells by incrementing the value stored in the corresponding place in the 'grid' list. To speed up the calculation we limit the loops to only look at cells within the range specified in the 'spread' variable. In the outer loop, we will be looking at all the rows starting from 15 less than the position of the record, to 15 more. For example, if the current record is located within the 23rd row, we will only look from row 8 (23-15) to row 38 (23+15). To make sure we don't reference any rows that don't exist in the grid, we use the `max()` and `min()` function to limit the range so that it is not lower than 0 and is not larger than the number of rows in the grid. We put the minimmum and maximum row indexes in the `range()` function, which gives us a list of indexes starting from the minimum and ending at the maximum. In the inner loop, we use the same logic to iterate over the columns of the grid within the range set by the 'spread' variable.
+
+Within this double loop, we perform the actual calculation that increments the 'heat' stored in each grid cell with a value based on that cell's proximity to the record. We will base this calculation on the [Gaussian function](https://en.wikipedia.org/wiki/Gaussian_function), which creates a smooth transition from the highest values which occur at smaller distances, and lower values which occur as the distance increases. 
+
+![gaussian](/dmc/images/gaussian01.png)
+
+![gaussian](/dmc/images/gaussian02.png)
+
+_Description of Gaussian function from [Wikipedia](https://en.wikipedia.org/wiki/Gaussian_function).
