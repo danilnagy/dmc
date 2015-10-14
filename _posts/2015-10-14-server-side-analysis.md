@@ -185,7 +185,85 @@ This code again uses the `hsl()` function, but now uses the 'value' parameter to
 To finish up our implementation of the analysis overlay, let's add functionality to the 'heatmap' checkbox we created earlier to allow it to control whether the analysis is executed after the data query, and whether it is visualized in the client's browser. To do this we will add one more argument to the query string that is sent with the request to the server. This argument will be a boolean value which specifies whether the 'heatmap' checkbox is checked. The server will then use that boolean to control whether the analysis is performed after the data query. We will also use this boolean in the client code to control whether the rectangle geometry is created for the grid. Open the `script.js` file again and find the line that reads:
 
 ```javascript
+request = "/getData?lat1=" + lat1 + "&lat2=" + lat2 + "&lng1=" + lng1 + "&lng2=" + lng2 + "&w=" + w + "&h=" + h + "&cell_size=" + cell_size
+```
+
+This is the current request we are sending to the server. Let's add another line _before_ the request to check whether the checkbox is checked, and store this value in a new variable:
+
+```javascript
+var checked = document.getElementById("heatmap").checked
+```
+
+Here we are using the 'document' object, which stores a reference to our entire HTML page. We are then using the document's `.getElementById()` method to locate the checkbox (remember that when we created it in the HTML code we assigned it an id of "heatmap"). Finally, we access the checkbox's `.checked` property to see if the checkbox is currently checked. Then, we are storing this value in a new variable called 'checked'.
+
+Now that we have this information, let's append it to the query string of the request being set to the server. Find the request line again, and chenge it to read:
+
+```javascript
 request = "/getData?lat1=" + lat1 + "&lat2=" + lat2 + "&lng1=" + lng1 + "&lng2=" + lng2 + "&w=" + w + "&h=" + h + "&cell_size=" + cell_size + "&analysis=" + checked
 ```
 
-This is the current request we are sending to the server. Let's add another line _before_ the request 
+You can see that we added the 'checked' boolean as a new argument in the query string attached to the key 'analysis'. Still in the `script.js` file, let's use this boolean value to control whether the rectangle geometry is generated after the data comes back from the server. Find the block of code that starts with:
+
+```javascript
+var topleft = projectPoint(lat2, lng1);
+```
+
+and ends with:
+
+```javascript
+.attr("fill", function(d) { return "hsl(" + Math.floor((1-d.value)*250) + ", 100%, 50%)"; });
+```
+
+This is the code that generates the rectangle geometry for the analysis overlay. To make sure that this code runs only when the heatmap is active, wrap the _entire block of code_ in a coditional that checks the value of the 'checked' boolean. The whole block of code should now look like this:
+
+```javascript
+if (checked == true){
+	var topleft = projectPoint(lat2, lng1);
+
+	svg_overlay.attr("width", w)
+		.attr("height", h)
+		.style("left", topleft.x + "px")
+		.style("top", topleft.y + "px");
+
+	var rectangles = g_overlay.selectAll("rect").data(data.analysis);
+	rectangles.enter().append("rect");
+
+	rectangles
+		.attr("x", function(d) { return d.x; })
+		.attr("y", function(d) { return d.y; })
+		.attr("width", function(d) { return d.width; })
+		.attr("height", function(d) { return d.height; })
+    	.attr("fill-opacity", ".2")
+    	.attr("fill", function(d) { return "hsl(" + Math.floor((1-d.value)*250) + ", 100%, 50%)"; });
+};
+```
+
+Now the rectangles will only be created if the 'heatmap' checkbox is checked and the value of the 'checked' boolean is 'true'. If you don't implement this conditional, JavaScript will generate an error when it tries to create the rectangle geometry based on grid data that is not being returned from the server.
+
+Now let's implement functionality on the server so that the heatmap analysis is only performed when the 'heatmap' checkbox is checked. Open the `app.py` file from the main repository directory in a text editor and find the line that reads:
+
+```python
+cell_size = float(request.args.get('cell_size'))
+```
+
+This is the last in a series of lines which extract the arguments sent through the query string of the request to the server. _Directly below this line_ add a new line to extract the value of the checkbox that is passed in the 'analysis' argument:
+
+```python
+analysis = request.args.get('analysis')
+```
+
+Since in this case we are sending a string, we do not have to wrap it in the `float()` function. Now the variable 'analysis' is storing the value of the checkbox on the client side, 'true' if the checkbox is checked, and 'false' if it is not. To have this value control the execution of the analysis code, we will create a conditional before the analysis starts which will check the value of the 'analysis' boolean and return the dataset directly to the server if the variable is 'false'. This will cause the function to terminate, effectively skipping the remainder of the function which contains the heatmap analysis. In the `app.py` file, find the line that reads:
+
+```python
+q.put('starting analysis...')
+```
+
+This message marks the beginning of the heatmap analysis code. _Directly before this line_, add the following lines of code:
+
+```python
+if analysis == "false":
+	q.put('idle')
+	return json.dumps(output)
+```
+
+This conditional checks the value of the 'analysis' boolean. If its value is 'false', meaning that the 'heatmap' checkbox is unchecked, the code places the 'idle' message in the queue, signifying that the server process is complete, and returns the data stored in the 'output' dictionary back to the client. Thus the heatmap analysis is skipped, and no analysis data is sent back to the client. If you save the file and reload [`http://localhost:5000/`](http://localhost:5000/), you will see that the analysis overlay is not initially visualized, since the checkbox is unchecked by default. However, if you check the 'heatmap' checkbox and click the 'Update Data' button, you will see that the analysis is performed on the server, and the heatmap is visualized in the browser.

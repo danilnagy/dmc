@@ -90,7 +90,13 @@ Now, let's write some code to specify the dimensions of each cell in the overlay
 q.put('idle')
 ```
 
-This is the message that marks the end of the data query. After this line, add a new line to extend the output dictionary (which is storing all the data being passed to the client) to contain data about our analysis grid:
+This is the message that marks the end of the data query. Since we will now proceed with the analysis, change this line to read:
+
+```python
+q.put('starting analysis...')
+```
+
+Then, after this line, add a new line to extend the output dictionary (which is storing all the data being passed to the client) to contain data about our analysis grid:
 
 ```python
 output["analysis"] = []
@@ -131,7 +137,11 @@ Within the double loop, we create a new dictionary for each cell which will stor
 
 ![grid](/dmc/images/grid05.png)
 
-Finally, once all the data for the cell has been set, we append the cell dictionary to the empty list tied to the "analysis" key in the "output" dictionary we specified earlier. Now, when the "outuput" dictionary is returned to the client on the final line of the `getData()` function, the grid information will be sent along with the information about the property listings.
+Then, once all the data for the cell has been set, we append the cell dictionary to the empty list tied to the "analysis" key in the "output" dictionary we specified earlier. Now, when the "outuput" dictionary is returned to the client on the final line of the `getData()` function, the grid information will be sent along with the information about the property listings. Finally, on a new line after this double loop, add a new message to the message queue which communicates that the server side process is complete:
+
+```python
+q.put('idle')
+```
 
 Now that we have the grid data being sent back to the client, let's go back to the client code and implement the actual visualization of the grid in D3. Open the `script.js` file within the `/static` folder in a text editor. Just as we did with the circles, we will implement the code to visualize the analysis grid within the `d3.json()` function, which sends the request to the server and modifies the visualization geometry according to the data that is sent back. After the request is sent and the data is returned, the first thing we need to do for our analysis overlay is to modify the location and size of the 'svg' element that is containing it. Since the grid is being generated according the the current size of our browser window, we need to make sure that the canvas containing the visualization geometry also matches the dimensions of the window, and is placed in the proper location relative to the map. Within the `d3.json()` function, *after* the code which creates the circles but *before* the `update()` function (this should be around line 90 in the code), add the following lines of code:
 
