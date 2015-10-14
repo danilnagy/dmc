@@ -130,10 +130,55 @@ Now that we have the location of the feature in the grid, we can iterate through
 
 Next we create a double loop to iterate over all the grid cells around the record and add heat to the cells by incrementing the value stored in the corresponding place in the 'grid' list. To speed up the calculation we limit the loops to only look at cells within the range specified in the 'spread' variable. In the outer loop, we will be looking at all the rows starting from 15 less than the position of the record, to 15 more. For example, if the current record is located within the 23rd row, we will only look from row 8 (23-15) to row 38 (23+15). To make sure we don't reference any rows that don't exist in the grid, we use the `max()` and `min()` function to limit the range so that it is not lower than 0 and is not larger than the number of rows in the grid. We put the minimmum and maximum row indexes in the `range()` function, which gives us a list of indexes starting from the minimum and ending at the maximum. In the inner loop, we use the same logic to iterate over the columns of the grid within the range set by the 'spread' variable.
 
-Within this double loop, we perform the actual calculation that increments the 'heat' stored in each grid cell with a value based on that cell's proximity to the record. We will base this calculation on the [Gaussian function](https://en.wikipedia.org/wiki/Gaussian_function), which creates a smooth transition from the highest values which occur at smaller distances, and lower values which occur as the distance increases. 
+Within this double loop, we perform the actual calculation that increments the 'heat' stored in each grid cell with a value based on that cell's proximity to the record. We will base this calculation on the [Gaussian function](https://en.wikipedia.org/wiki/Gaussian_function), which creates a smooth transition from the highest values which occur at smaller distances to lower values which occur as the distance increases. 
 
 ![gaussian](/dmc/images/gaussian01.png)
 
 ![gaussian](/dmc/images/gaussian02.png)
 
-_Description of Gaussian function from [Wikipedia](https://en.wikipedia.org/wiki/Gaussian_function).
+_Description of Gaussian function from [Wikipedia](https://en.wikipedia.org/wiki/Gaussian_function)._
+
+In the Gaussian function, the 'a' constant controls the height of the curve, which we arbitrarily set as 2 (since we will eventually normalize all the values we only care about relative values, not the total amount). The 'b' constant controls the center of the peak of the curve, which we keep at 0 to make sure that the heat is centered around the feature point. The 'c' constant controls the width of the curve, which we set to be a multiple of the 'spread' variable. This will allows to control the diffusion of heat in the heatmap by changing this 'spread' variable. As the 'x' variable in the function, we pass the distance between each grid cell (represented by i and j) and the record feature (represented by pos_x and pos_y), which is calculated by the `point_distance` helper function we wrote earlier. We then increment the  value of the current grid cell (represented by `grid[j][i]`) by the value coming out of the function using the '+=' operator. For the purpose of this class, you do not have to understand how the Gaussian function works, but you should understand how you can tweak its parameters to create different distributions of heat in the heatmap based on the density of the features in the dataset.
+
+[grid heatmap visualization]
+
+Once we iterate over all the records and add heat to the affected grid cells, we will use the `normalizeArray()` helper function we wrote previously to normalize the whole 'grid' list to make sure that the lowest value in the analysis grid will be 0 and the highest value will be 1. On the following line, type:
+
+```python
+grid = normalizeArray(grid)
+```
+
+Now that we have a grid with 'heat' values corresponding to the density of the feature points, we can use these values to set the value of the analysis grid cells being sent back to the client. A few lines down in the code, find the line that reads:
+
+```python
+newItem['value'] = .5
+```
+
+This line is currently setting the value of each analysis grid cells to a default '.5'. Let's change this to get the value of the corresponding cell in the 'grid' list. Change this line to read:
+
+```python
+newItem['value'] = grid[j][i]
+```
+
+Now the value in the analysis grid will match the heat values we generated earlier, with higher heat values representing a higher density of feature points. Notice that since we normalized the list of heat values to be in the range from [0, 1], our color range on the client side will still work, with a value of 0 creating the least saturation, and a value of 1 creating the most saturated red.
+
+Save the `app.py` file and start the server by running the `app.py` file in the Command Prompt or Terminal, or within a Canopy session. Make sure you also have your OrientDB server running, and have changed the database name and login information in the `app.py` file to match your database. Go to  [`http://localhost:5000/`](http://localhost:5000/) in your browser. You should now see the same analysis grid, but this time the grid should be more red in areas with larger concentrations of record features, and less red in aread of lower concentrations. Go back to the `app.py` file and experiment with different settings for the 'spread' variable, to see how this effects the distribution of heat in the overlay. 
+
+![overlay](/dmc/images/overlay01.png)
+
+The heatmap is working, but it is a bit hard to see the variation in the red color. To create a more legible visualization, let's go back to the client side code, and change the way that color is assigned to the grid rectangles. Open the `script.js` file within the `/static` folder in a text editor, and find the line that reads:
+
+```javascript
+.attr("fill", function(d) { return "hsl(0, " + Math.floor(d.value*100) + "%, 50%)"; });
+```
+
+This line is using the `hsl()` function to allow the 'value' parameter of each grid cell to control the saturation of the red color. Let's change this line to read:
+
+```javascript
+.attr("fill", function(d) { return "hsl(" + Math.floor((1-d.value)*250) + ", 100%, 50%)"; });
+```
+
+This code again uses the `hsl()` function, but now uses the 'value' parameter to control the hue of the color while setting the saturation to a constant 100%. Since the 'value' data is normalized to the range [0, 1], we can multiply this value by 250 to create a range of colors from the hue 0 (which represents red) to a hue 250 (which represents blue). To associate the higher values with red and the lower values with blue (which is more intuitive), we subtract the value from 1 (which effective flips the range). 
+
+![overlay](/dmc/images/overlay03.png)
+
