@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  Working with graphs
-date:   2015-10-21 00:30:00
+date:   2015-10-28 00:30:00
 tags:
 - js
 - python
