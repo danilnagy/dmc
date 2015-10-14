@@ -178,7 +178,14 @@ This line is using the `hsl()` function to allow the 'value' parameter of each g
 .attr("fill", function(d) { return "hsl(" + Math.floor((1-d.value)*250) + ", 100%, 50%)"; });
 ```
 
-This code again uses the `hsl()` function, but now uses the 'value' parameter to control the hue of the color while setting the saturation to a constant 100%. Since the 'value' data is normalized to the range [0, 1], we can multiply this value by 250 to create a range of colors from the hue 0 (which represents red) to a hue 250 (which represents blue). To associate the higher values with red and the lower values with blue (which is more intuitive), we subtract the value from 1 (which effective flips the range). 
+This code again uses the `hsl()` function, but now uses the 'value' parameter to control the hue of the color while setting the saturation to a constant 100%. Since the 'value' data is normalized to the range [0, 1], we can multiply this value by 250 to create a range of colors from the hue 0 (which represents red) to a hue 250 (which represents blue). To associate the higher values with red and the lower values with blue (which is more intuitive), we subtract the value from 1 (which effective flips the range). Save the file and reload [`http://localhost:5000/`](http://localhost:5000/) to see the new visualization.
 
 ![overlay](/dmc/images/overlay03.png)
 
+To finish up our implementation of the analysis overlay, let's add functionality to the 'heatmap' checkbox we created earlier to allow it to control whether the analysis is executed after the data query, and whether it is visualized in the client's browser. To do this we will add one more argument to the query string that is sent with the request to the server. This argument will be a boolean value which specifies whether the 'heatmap' checkbox is checked. The server will then use that boolean to control whether the analysis is performed after the data query. We will also use this boolean in the client code to control whether the rectangle geometry is created for the grid. Open the `script.js` file again and find the line that reads:
+
+```javascript
+request = "/getData?lat1=" + lat1 + "&lat2=" + lat2 + "&lng1=" + lng1 + "&lng2=" + lng2 + "&w=" + w + "&h=" + h + "&cell_size=" + cell_size + "&analysis=" + checked
+```
+
+This is the current request we are sending to the server. Let's add another line _before_ the request 
