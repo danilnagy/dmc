@@ -134,11 +134,9 @@ Next we create a double loop to iterate over all the grid cells around the recor
 
 Within this double loop, we perform the actual calculation that increments the 'heat' stored in each grid cell with a value based on that cell's proximity to the record. We will base this calculation on the [Gaussian function](https://en.wikipedia.org/wiki/Gaussian_function), which creates a smooth transition from the highest values which occur at smaller distances to lower values which occur as the distance increases. 
 
-![gaussian](/dmc/images/gaussian01.png)
+![gaussian](/dmc/images/gaussian03.png)
 
-![gaussian](/dmc/images/gaussian02.png)
-
-_Description of Gaussian function from [Wikipedia](https://en.wikipedia.org/wiki/Gaussian_function)._
+_Mathematical description of Gaussian function ([Wikipedia](https://en.wikipedia.org/wiki/Gaussian_function))._
 
 In the Gaussian function, the 'a' constant controls the height of the curve, which we arbitrarily set as 2 (since we will eventually normalize all the values we only care about relative values, not the total amount). The 'b' constant controls the center of the peak of the curve, which we keep at 0 to make sure that the heat is centered around the feature point. The 'c' constant controls the width of the curve, which we set to be a multiple of the 'spread' variable. This will allows to control the diffusion of heat in the heatmap by changing this 'spread' variable. As the 'x' variable in the function, we pass the distance between each grid cell (represented by i and j) and the record feature (represented by pos_x and pos_y), which is calculated by the `point_distance` helper function we wrote earlier. We then increment the  value of the current grid cell (represented by `grid[j][i]`) by the value coming out of the function using the '+=' operator. For the purpose of this class, you do not have to understand how the Gaussian function works, but you should understand how you can tweak its parameters to create different distributions of heat in the heatmap based on the density of the features in the dataset.
 
