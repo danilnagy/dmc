@@ -25,7 +25,7 @@ def point_distance(x1, y1, x2, y2):
 	return ((x1-x2)**2.0 + (y1-y2)**2.0)**(0.5)
 ```
 
-This implements the [Pythagorian Theorem](https://en.wikipedia.org/wiki/Pythagorean_theorem) for finding the distance between two points *(x1, y1)* and *(x2, y2)*. The next function will allow us to remap a number from one range to another. On the following lines, write the function:
+This implements the [Pythagorean Theorem](https://en.wikipedia.org/wiki/Pythagorean_theorem) for finding the distance between two points *(x1, y1)* and *(x2, y2)*. The next function will allow us to remap a number from one range to another. On the following lines, write the function:
 
 ```python
 def remap(value, min1, max1, min2, max2):
@@ -55,16 +55,14 @@ def normalizeArray(inputArray):
 
 This function takes an array as an input which is assumed to be a two dimensional grid. It then uses a double loop to check each value in this grid. The outer loop iterates over the rows of the grid, and stores the current row index in the variable j. The inner loop iterates over each item in the list, storing the current column index in the variable i. Within this double loop, we can get the value of each grid cell by using the j and i variables as indexes into the two dimensions of the array. As we scan through the grid values, we keep track of the minimum and maximum values, using a process similar to what you implemented in the homework of a [previous tutorial](http://danilnagy.github.io/dmc/2015/09/16/accessing-orientdb-through-python/). To get the maximum value in the grid, we initially set the value of maxVal very low. Then we compare it to each value in the grid, and if the grid value is higher than the current value of maxVal, we set maxVal to that value. This ensures that by the end of the double loop, maxVal is storing the highest value in the whole grid. We do the same thing to find the minimum value by setting the initial value of minVal very high, and replacing it with any lower value we find in the grid. Once we have the minimum and maximum values within the array, we scan through the grid again with the same set of loops, and use our `remap()` helper function to map the value of each cell from the initial range stored in *[minVal, maxVal]* to our new target range of *[0, 1]*.
 
-Now that we have our helper functions, let's implement the actual heatmap calculation. The heatmap works by ...
-
-We will write the code to calculate the heatmap within the `getData()` function, right after the we calculate the dimensions of the analysis overlay grid, and right before we generate the data for the analysis overlay itself. Find the line that reads:
+Now that we have our helper functions, let's implement the actual heatmap calculation. We will write the code to calculate the heatmap within the `getData()` function, right after the we calculate the dimensions of the analysis overlay grid, and right before we generate the data for the analysis overlay itself. Find the line that reads:
 
 ```python
 numW = int(math.floor(w/cell_size))
 numH = int(math.floor(h/cell_size))
 ```
 
-These are the lines that calculate the dimensions of the grid. You should add the following code for caculating the heatmap right _after_ these lines.
+These are the lines that calculate the dimensions of the grid. You should add the following code for calculating the heatmap right _after_ these lines.
 
 The first thing we need to do is establish a two dimensional grid array which matches the size of our analysis overlay and will store the heat values of each grid cell. We will then scan over each feature in the map, and adjust the heat values in the cells according to their distance from the features. Finally, we will use this grid to set the values of the cells in our analysis overlay. 
 
@@ -99,7 +97,7 @@ for j in range(numH):
 		grid[j].append(0)
 ```
 
-The outer loop iterates over the rows in the grid. Within this loop, we append a new empty list to the grid variable which represents each row and stores all the values within this row. The innter loop then iterates through all the columns of the grid. Within this loop, we append a value of 0 to the list of the row we are currently working on (indexed by the j variable). This creates a grid of zeros which will store the heat value of each cell in the grid. For a 3x3 grid the resulting list stored in the 'grid' variable would look like this:
+The outer loop iterates over the rows in the grid. Within this loop, we append a new empty list to the grid variable which represents each row and stores all the values within this row. The inner loop then iterates through all the columns of the grid. Within this loop, we append a value of 0 to the list of the row we are currently working on (indexed by the j variable). This creates a grid of zeros which will store the heat value of each cell in the grid. For a 3x3 grid the resulting list stored in the 'grid' variable would look like this:
 
 ```
 [ 
@@ -128,7 +126,7 @@ The first line iterates through all the records stored in the 'records' list, an
 
 Now that we have the location of the feature in the grid, we can iterate through the grid and add heat to the cells based on their distance from the feature. To control the effect that distance has on the heat added to the cells of the analysis grid, we create a new variable called 'spread'. This variable can be given a different value for each record, and could be used to control the relative effect that each record has on the heatmap. In our case, we will set this value as a constant 15 for each record, which specifies that each record will affect the grid cells within a radius of 15 grid cells around it. 
 
-Next we create a double loop to iterate over all the grid cells around the record and add heat to the cells by incrementing the value stored in the corresponding place in the 'grid' list. To speed up the calculation we limit the loops to only look at cells within the range specified in the 'spread' variable. In the outer loop, we will be looking at all the rows starting from 15 less than the position of the record, to 15 more. For example, if the current record is located within the 23rd row, we will only look from row 8 (23-15) to row 38 (23+15). To make sure we don't reference any rows that don't exist in the grid, we use the `max()` and `min()` function to limit the range so that it is not lower than 0 and is not larger than the number of rows in the grid. We put the minimmum and maximum row indexes in the `range()` function, which gives us a list of indexes starting from the minimum and ending at the maximum. In the inner loop, we use the same logic to iterate over the columns of the grid within the range set by the 'spread' variable.
+Next we create a double loop to iterate over all the grid cells around the record and add heat to the cells by incrementing the value stored in the corresponding place in the 'grid' list. To speed up the calculation we limit the loops to only look at cells within the range specified in the 'spread' variable. In the outer loop, we will be looking at all the rows starting from 15 less than the position of the record, to 15 more. For example, if the current record is located within the 23rd row, we will only look from row 8 (23-15) to row 38 (23+15). To make sure we don't reference any rows that don't exist in the grid, we use the `max()` and `min()` function to limit the range so that it is not lower than 0 and is not larger than the number of rows in the grid. We put the minimum and maximum row indexes in the `range()` function, which gives us a list of indexes starting from the minimum and ending at the maximum. In the inner loop, we use the same logic to iterate over the columns of the grid within the range set by the 'spread' variable.
 
 ![grid](/dmc/images/grid06.png)
 
@@ -138,7 +136,7 @@ Within this double loop, we perform the actual calculation that increments the '
 
 _Mathematical description of Gaussian function ([Wikipedia](https://en.wikipedia.org/wiki/Gaussian_function))._
 
-In the Gaussian function, the 'a' constant controls the height of the curve, which we arbitrarily set as 2 (since we will eventually normalize all the values we only care about relative values, not the total amount). The 'b' constant controls the center of the peak of the curve, which we keep at 0 to make sure that the heat is centered around the feature point. The 'c' constant controls the width of the curve, which we set to be a multiple of the 'spread' variable. This will allows to control the diffusion of heat in the heatmap by changing this 'spread' variable. As the 'x' variable in the function, we pass the distance between each grid cell (represented by i and j) and the record feature (represented by pos_x and pos_y), which is calculated by the `point_distance` helper function we wrote earlier. We then increment the  value of the current grid cell (represented by `grid[j][i]`) by the value coming out of the function using the '+=' operator. For the purpose of this class, you do not have to understand how the Gaussian function works, but you should understand how you can tweak its parameters to create different distributions of heat in the heatmap based on the density of the features in the dataset.
+In the Gaussian function, the 'a' constant controls the height of the curve, which we arbitrarily set as 2 (since we will eventually normalize all the values we only care about relative values, not the total amount). The 'b' constant controls the center of the peak of the curve, which we keep at 0 to make sure that the heat is centered on the feature point. The 'c' constant controls the width of the curve, which we set to be a multiple of the 'spread' variable. This will allows to control the diffusion of heat in the heatmap by changing this 'spread' variable. As the 'x' variable in the function, we pass the distance between each grid cell (represented by i and j) and the record feature (represented by pos_x and pos_y), which is calculated by the `point_distance` helper function we wrote earlier. We then increment the value of the current grid cell (represented by `grid[j][i]`) by the value coming out of the function using the '+=' operator. For the purpose of this class, you do not have to understand how the Gaussian function works, but you should understand how you can tweak its parameters to create different distributions of heat in the heatmap based on the density of the features in the dataset.
 
 ![grid](/dmc/images/grid07.png)
 
@@ -162,7 +160,7 @@ newItem['value'] = grid[j][i]
 
 Now the value in the analysis grid will match the heat values we generated earlier, with higher heat values representing a higher density of feature points. Notice that since we normalized the list of heat values to be in the range from [0, 1], our color range on the client side will still work, with a value of 0 creating the least saturation, and a value of 1 creating the most saturated red.
 
-Save the `app.py` file and start the server by running the `app.py` file in the Command Prompt or Terminal, or within a Canopy session. Make sure you also have your OrientDB server running, and have changed the database name and login information in the `app.py` file to match your database. Go to  [`http://localhost:5000/`](http://localhost:5000/) in your browser. You should now see the same analysis grid, but this time the grid should be more red in areas with larger concentrations of record features, and less red in aread of lower concentrations. Go back to the `app.py` file and experiment with different settings for the 'spread' variable, to see how this effects the distribution of heat in the overlay. 
+Save the `app.py` file and start the server by running the `app.py` file in the Command Prompt or Terminal, or within a Canopy session. Make sure you also have your OrientDB server running, and have changed the database name and login information in the `app.py` file to match your database. Go to [`http://localhost:5000/`](http://localhost:5000/) in your browser. You should now see the same analysis grid, but this time the grid should be more red in areas with larger concentrations of record features, and less red in areas of lower concentrations. Go back to the `app.py` file and experiment with different settings for the 'spread' variable, to see how this effects the distribution of heat in the overlay. 
 
 ![overlay](/dmc/images/overlay01.png)
 
@@ -196,7 +194,7 @@ var checked = document.getElementById("heatmap").checked
 
 Here we are using the 'document' object, which stores a reference to our entire HTML page. We are then using the document's `.getElementById()` method to locate the checkbox (remember that when we created it in the HTML code we assigned it an id of "heatmap"). Finally, we access the checkbox's `.checked` property to see if the checkbox is currently checked. Then, we are storing this value in a new variable called 'checked'.
 
-Now that we have this information, let's append it to the query string of the request being set to the server. Find the request line again, and chenge it to read:
+Now that we have this information, let's append it to the query string of the request being set to the server. Find the request line again, and change it to read:
 
 ```javascript
 request = "/getData?lat1=" + lat1 + "&lat2=" + lat2 + "&lng1=" + lng1 + "&lng2=" + lng2 + "&w=" + w + "&h=" + h + "&cell_size=" + cell_size + "&analysis=" + checked
@@ -214,7 +212,7 @@ and ends with:
 .attr("fill", function(d) { return "hsl(" + Math.floor((1-d.value)*250) + ", 100%, 50%)"; });
 ```
 
-This is the code that generates the rectangle geometry for the analysis overlay. To make sure that this code runs only when the heatmap is active, wrap the _entire block of code_ in a coditional that checks the value of the 'checked' boolean. The whole block of code should now look like this:
+This is the code that generates the rectangle geometry for the analysis overlay. To make sure that this code runs only when the heatmap is active, wrap the _entire block of code_ in a conditional that checks the value of the 'checked' boolean. The whole block of code should now look like this:
 
 ```javascript
 if (checked == true){
