@@ -6,4 +6,4 @@ tags:
 - python
 ---
 
-Cross Validation
+fork and clone the ['week-6'](https://github.com/data-mining-the-city/week-6) repository from the DMC Github page and switch to the `03-validation` branch. 
