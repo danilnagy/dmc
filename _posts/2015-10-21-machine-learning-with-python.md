@@ -8,7 +8,7 @@ tags:
 
 In the next series of tutorials we will begin to develop more complex analysis on the back-end server while visualizing the results using the analysis overlay grid we developed in the [last set of tutorials](http://danilnagy.github.io/dmc/2015/10/14/creating-an-analysis-overlay/). For this analysis we will begin to explore the methods of [Machine Learning](https://en.wikipedia.org/wiki/Machine_learning), which will allow us to model complex systems within our data, and use those models to make predictions. To run Machine Learning algorithms on our back-end server, we will use the [scikit-learn](http://scikit-learn.org/) library for Python, which contains many useful Machine Learning algorithms, while being extremely easy to use and learn.
 
-## Setting up scikit-learn
+### Setting up scikit-learn
 
 Like pyorient and Flask, scikit-learn is an external Python library, so before we start to use it we need to install it into our Python distribution. Also like Flask, scikit-learn is available directly from Canopy's Package Manager. To install it, go to Canopy's Package Manager (make sure you are logged in with your Academic account) and type 'scikit' into the search bar. 
 
@@ -22,7 +22,7 @@ import sklearn
 
 If you don't get an error the installation was successful and we are ready to go. To get a feel for the library and learn some of the basic principles of Machine Learning, I suggest you go through the [Quick Start Guide](http://scikit-learn.org/stable/tutorial/basic/tutorial.html) as well as some of the [turials](http://scikit-learn.org/stable/tutorial/index.html) on the [scikit-learn](http://scikit-learn.org/) website. The library also comes with some basic [example datasets](http://scikit-learn.org/stable/datasets/index.html#toy-datasets), along with some [example projects](http://scikit-learn.org/stable/auto_examples/index.html) which you can follow to get practice with using the library and see some real-world applications of Machine Learning.
 
-## Supervised learning for interpolation
+### Supervised learning for interpolation
 
 For our first example, we will use [supervised learning](https://en.wikipedia.org/wiki/Supervised_learning) to train a model based on price information in our real estate data. We will then use the trained model to predict the prices of each cell in our analysis grid. By visualizing these predicted prices, we will get a good representation of how prices are spread geographically in our study area. 
 
