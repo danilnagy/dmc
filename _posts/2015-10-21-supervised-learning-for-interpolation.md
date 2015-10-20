@@ -79,7 +79,9 @@ The second parameter of the SVR model, *epsilon*, represents the width of the mo
 
 `high variance <--- epsilon ---> high bias`
 
-A third parameter available for the SVR model which is specific to the 'rbf' kernel is *gamma*, which defines the strength of the distance function. Intuitively, this parameter effects how far the influence of a single training example reaches, with low values meaning 'far' and high values meaning 'close'. This is somewhat similar to the 'spread' parameter we used for the heat map calculation, although with the opposite meaning for high and low values. 
+A third parameter available for the SVR model which is specific to the 'rbf' kernel is *gamma*, which defines the strength of the distance function. Intuitively, this parameter effects how far the influence of a single training example reaches, with low values meaning 'far' and high values meaning 'close'. This is somewhat similar to the 'spread' parameter we used for the heat map calculation, although with the opposite meaning for high and low values. Lower values of gamma will give each point a farther influence, making the model smoother and simpler overall. Higher values will localize the effect of each sample, creating a more complex and jagged model, prone to local over-fitting. In the bias-variance tradeoff, lower gamma values create high bias, while higher values create high variance:
+
+`high bias <--- gamma ---> high variance`
 
 For a more in depth description of the parameters available for SVM models, you can read this [section](http://scikit-learn.org/stable/auto_examples/svm/plot_rbf_parameters.html#example-svm-plot-rbf-parameters-py) in the scikit-learn documentation. You can also consult the [SVR documentation](http://scikit-learn.org/stable/modules/generated/sklearn.svm.SVR.html#sklearn.svm.SVR) for a full list of available parameters and their default settings.
 
