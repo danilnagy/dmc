@@ -40,3 +40,14 @@ Although you are encouraged to experiment with all the possible algorithms, for 
 
 ### Additional resources for Machine Learning
 
+- [https://goo.gl/bFBFP9](https://goo.gl/bFBFP9)
+
+Recording of a lecutre from the Fall 2014 Data Mining the City seminar describing some of the theoretical and technical background of Machine Learning
+
+- [https://www.coursera.org/learn/machine-learning](https://www.coursera.org/learn/machine-learning)
+
+A very famous course taught by Andrew Ng, who is now a chief scientist at Baidu Research
+
+- [https://www.coursera.org/learn/machine-learning](https://work.caltech.edu/telecourse.html)
+
+Another great course from Caltech covering alot more of the fundamentals of Machine Learning. Some of the math can be pretty involved, but his descriptions of the Bias/Variance tradeoff and cross validation are very good
