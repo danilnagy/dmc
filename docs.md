@@ -8,4 +8,8 @@ permalink: /docs/
 
 [Readings](http://goo.gl/IyyM1n) - All readings for the class.
 
+[Data](https://goo.gl/XuOlmj) - Data sets used in class.
+
+[Resources](https://goo.gl/fPLBHL) - Additional resources, including prior student work.
+
 [DMC FA14](goo.gl/n63xkW) - Youtube playlist of recorded lectures and tutorials from Fall 2014 session of Data Mining the City.
