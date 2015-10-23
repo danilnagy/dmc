@@ -144,7 +144,7 @@ This concludes our first example of Machine Learning for our Web Stack, using a 
 
 - In the `index.html` file, create a user interface for switching between heat map and interpolation analysis. This can be a series of checkboxes, a drop down menu, or another type of form element
 - In the `index.html` file, create a user interface for setting analysis parameters such as the resolution of the grid, the 'spread' of the heat map, or the maximum number of data points that should be considered in the analysis
-- In the `script.js` file, capture the options selected by the user in the client code, and pass them as arguments to the serer during the request
+- In the `script.js` file, capture the options selected by the user in the client code, and pass them as arguments to the server within the request
 - In the `app.py` file, capture the request arguments coming from the client in the server code and use them to control the parameters of the analysis
 
 You will find helpful comments for implementing these features throughout the files in the 04-assignment branch. Remember to submit a pull request with your changes before the next deadline.
