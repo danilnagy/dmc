@@ -20,13 +20,13 @@ The first result should be 'scikit_learn' followed by the version number. Select
 import sklearn
 ```
 
-If you don't get an error the installation was successful and we are ready to go. To get a feel for the library and learn some of the basic principles of Machine Learning, I suggest you go through the [Quick Start Guide](http://scikit-learn.org/stable/tutorial/basic/tutorial.html) as well as some of the [turials](http://scikit-learn.org/stable/tutorial/index.html) on the [scikit-learn](http://scikit-learn.org/) website. The library also comes with some basic [example datasets](http://scikit-learn.org/stable/datasets/index.html#toy-datasets), along with some [example projects](http://scikit-learn.org/stable/auto_examples/index.html) which you can follow to get practice with using the library and see some real-world applications of Machine Learning.
+If you don't get an error the installation was successful and we are ready to go. To get a feel for the library and learn some of the basic principles of Machine Learning, I suggest you go through the [Quick Start Guide](http://scikit-learn.org/stable/tutorial/basic/tutorial.html) as well as some of the [tutorials](http://scikit-learn.org/stable/tutorial/index.html) on the [scikit-learn](http://scikit-learn.org/) website. The library also comes with some basic [example datasets](http://scikit-learn.org/stable/datasets/index.html#toy-datasets), along with some [example projects](http://scikit-learn.org/stable/auto_examples/index.html) which you can follow to get practice with using the library and see some real-world applications of Machine Learning.
 
 ### Supervised learning for interpolation
 
 For our first example, we will use [supervised learning](https://en.wikipedia.org/wiki/Supervised_learning) to train a model based on price information in our real estate data. We will then use the trained model to predict the prices of each cell in our analysis grid. By visualizing these predicted prices, we will get a good representation of how prices are spread geographically in our study area. 
 
-This practice of constructing new data points within the range of a discrete set of known data points is known as [interpolation](https://en.wikipedia.org/wiki/Supervised_learning). Interpolation basically tries to create a continuous model for how a certain value is distrbuted through space. If the distribution is in two dimensions and the value is thought to be the 3rd dimension, you can think of interpolation as trying to fit a continuous 3d surface that matches the height of each point as best as possible. Because the model is continuous, it can rarely model the data perfectly. The goal rather is to give a good interprotation of the general structure while accounting for outliers. 
+This practice of constructing new data points within the range of a discrete set of known data points is known as [interpolation](https://en.wikipedia.org/wiki/Supervised_learning). Interpolation basically tries to create a continuous model for how a certain value is distributed through space. If the distribution is in two dimensions and the value is thought to be the 3rd dimension, you can think of interpolation as trying to fit a continuous 3d surface that matches the height of each point as best as possible. Because the model is continuous, it can rarely model the data perfectly. The goal rather is to give a good interpretation of the general structure while accounting for outliers. 
 
 ![Interpolation](/dmc/images/interp01.png)
 
@@ -42,7 +42,7 @@ Although you are encouraged to experiment with all the possible algorithms, for 
 
 - [https://goo.gl/bFBFP9](https://goo.gl/bFBFP9)
 
-Recording of a lecutre from the Fall 2014 Data Mining the City seminar describing some of the theoretical and technical background of Machine Learning
+Recording of a lecture from the Fall 2014 Data Mining the City seminar describing some of the theoretical and technical background of Machine Learning
 
 - [https://www.coursera.org/learn/machine-learning](https://www.coursera.org/learn/machine-learning)
 
@@ -50,4 +50,4 @@ A very famous course taught by Andrew Ng, who is now a chief scientist at Baidu 
 
 - [https://www.coursera.org/learn/machine-learning](https://work.caltech.edu/telecourse.html)
 
-Another great course from Caltech covering alot more of the fundamentals of Machine Learning. Some of the math can be pretty involved, but his descriptions of the Bias/Variance tradeoff and cross validation are very good
+Another great course from Caltech covering a lot more of the fundamentals of Machine Learning. Some of the math can be pretty involved, but his descriptions of the Bias/Variance tradeoff and cross validation are very good
