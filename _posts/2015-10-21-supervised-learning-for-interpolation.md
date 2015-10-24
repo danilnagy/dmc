@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  Supervised Learning for interpolation
+title:  Supervised learning for interpolation
 date:   2015-10-21 02:00:00
 tags:
 - python
@@ -9,7 +9,7 @@ tags:
 
 ### Setting up the model
 
-To start developing our Machine Learning model, fork and clone the ['week-6'](https://github.com/data-mining-the-city/week-6) repository from the DMC Github page and switch to the `02-supervised-learning` branch. This branch has all of the code we have developed so far, including the analysis overlay grid that was developed in the last tutorial. To prepare for this tutorial, the color of the circles has also been changed to gray to make the interpolation results easier to read. The name and id of the checkbox has also been changed from 'Heat Map' to 'Interpolation' to relate to the type of analysis we will be doing. The checkbox has also been set to be 'checked' by default, so that the analysis is performed the first time the page is loaded. The remainder of this tutorial will focus on the server side, where we will implement and train our model. To visualize the results, we will utilize the same framework we developed for the heat map, to make sure that our connection to the client end visualization remains intact.
+To start developing the Machine Learning model, fork and clone the ['week-6'](https://github.com/data-mining-the-city/week-6) repository from the DMC Github page and switch to the `02-supervised-learning` branch. This branch has all of the code we have developed so far, including the analysis overlay grid that was developed in the last tutorial. To prepare for this tutorial, the color of the circles has been changed to gray to make the interpolation results easier to read. The name and id of the checkbox has also been changed from 'Heat Map' to 'Interpolation' to relate to the type of analysis we will be doing. The checkbox has also been set to be 'checked' by default, so that the analysis is performed the first time the page is loaded. The remainder of this tutorial will focus on the server side, where we will implement and train our model. To visualize the results, we will utilize the same framework we developed for the heat map, to make sure that our connection to the client end visualization remains intact.
 
 Open the `app.py` file from the main repository directory in a text editor. This is the same server code we developed in the previous tutorials, except the portion of the code that is specific to the heat map has been commented out. Our new Machine Learning implementation will go in place of this code, and utilize the same data structure to make sure that the rest of our implementation continues to function in the same way.
 
@@ -19,7 +19,7 @@ Before we start writing the actual analysis code, we need to import the appropri
 from Queue import Queue
 ```
 
-This is the last library we are currently import. Under this line, add the lines:
+This is the last library we are currently importing. Under this line, add the lines:
 
 ```python
 from sklearn import preprocessing
@@ -30,7 +30,7 @@ import numpy as np
 
 This will import two modules from the scikit-learn library: the 'preprocessing' module which will let us do some necessary preparation of the data, and the 'svm' module which actually implements the SVM algorithms for Machine Learning. We will also import the 'numpy' library, which is a core numerical analysis library that is necessary for converting data into a format that scikit-learn can work with. Adding 'as np' to the import statement allows us to use the 'np' shorthand for referencing the library as opposed to its full name.
 
-Now go to line 165 in the document, directly below where the heat map code has been commented out. This is where we will write all the code for our Machine Learning implementation. Notice that the definition of the 'grid' list has not been commented out. To make sure that our analysis data is still passed correctly to the server, we will use this same grid list to make predictions and store the results.
+Now go to line 165 in the document, directly below where the heat map code has been commented out. This is where we will write all the code for our Machine Learning implementation. Notice that the definition of the 'grid' list has not been commented out. To make sure that our analysis data is still passed correctly to the client, we will use this same grid list to make predictions and store the results.
 
 First, let's create a couple of empty lists to store the feature and target data we will use to train our Machine Learning model. On a new line, type the following code:
 
@@ -39,7 +39,7 @@ featureData = []
 targetData = []
 ```
 
-Remember that the feature data stores all the information that describes our data, except for the value that we want to model. In our case, the feature data will consist of the latitude and longitude of the point. The target data then stores the value we want to model, which we know for a limited set of training data, but might not know for other data points. In our case, the value we want to model is the price of the data point. During training, the model will 'learn' how to relate the target value to the data in the feature set. This will allow us to 'predict' the target value of price for data points that we don't have a price for, such as the coordinates of the analysis overlay.
+Remember that the feature data stores all the information that describes our data, except for the value that we want to model. In our case, the feature data will consist of the latitude and longitude of each data point. The target data then stores the value we want to model, which we know for a limited set of training data, but might not know for other data points. In our case, the value we want to model is the price of the data point. During training, the model will 'learn' how to relate the target value to the values in the feature data. This will allow us to 'predict' the target value of price for data points that we don't have a price for, such as the coordinates of the analysis overlay grid.
 
 Next, let's iterate over all of the records returned from the database, and add the appropriate data to our feature and target data sets:
 
@@ -58,16 +58,16 @@ X = np.asarray(featureData, dtype='float')
 y = np.asarray(targetData, dtype='float')
 ```
 
-Here we create two new variables, and use the `np.asarray()` function from numpy to convert both lists to numpy arrays. The second parameter specifies that the data is of type 'float', which you have to declare explicitly in numpy. For the names of the arrays, we use X and y, which are conventions in Machine Learning. In descriptions of Machine Learning algorithms, 'X' typically represents the input or feature data set. It is capitalized because it is a two dimensional array (with the number of rows equal to the number of data samples, and the number of columns equal to the number of features), which is also a convention of numerical analysis. Likewise, 'y' typically represents the output or target data set, and it is kept lower case because it is a single dimensional array, with the length equal to the number of data samples. X and y are intuitive when discussing Machine Learning, since the trained model is understood to be a kind of function which gives values of 'y' based on 'x' inputs.
+Here we create two new variables, and use the `np.asarray()` function from numpy to convert both lists to numpy arrays. The second parameter specifies that the data is of type 'float', which you have to declare explicitly in numpy. For the names of the arrays, we use X and y, which are conventions in Machine Learning. In descriptions of Machine Learning algorithms, 'X' typically represents the input or feature data set. It is capitalized because it is a two dimensional array (with the number of rows equal to the number of data samples, and the number of columns equal to the number of features), which is also a convention of numerical analysis. Likewise, 'y' typically represents the output or target data set, and it is kept lower case because it is a single dimensional array, with the length equal to the number of data samples. Calling the two data sets X and y is intuitive when discussing Machine Learning, since the trained model is understood to be a kind of function which gives values of 'y' based on 'x' inputs.
 
-Now that we have our two data sets, we are almost ready to train the model. Before we do that, however, it is recommended that we normalize our feature data set so that each feature has a mean 0 and a variance of 1. We do this to balance out the features, and make sure that they all play an equal part in training the model. Otherwise, if one feature has a much larger range or average value than another, it would have a disproportionately large effect on the final model. To automate this scaling process, scikit-learn's preprocessing module has a useful object called `[StandardScaler`](http://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.StandardScaler.html), which we implement by adding the following lines of code:
+Now that we have our two data sets, we are almost ready to train the model. Before we do that, however, it is recommended that we normalize our feature data set so that each feature has a mean 0 and a variance of 1. We do this to balance out the features, and make sure that they all play an equal part in training the model. Otherwise, if one feature has a much larger range or average value than another, it would have a disproportionately large effect on the final model. To automate this scaling process, scikit-learn's preprocessing module has a useful object called [`StandardScaler`](http://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.StandardScaler.html), which we implement by adding the following lines of code:
 
 ```python
 scaler = preprocessing.StandardScaler().fit(X)
 X_scaled = scaler.transform(X)
 ```
 
-The first line creates a scaler object for our X data set by utilizing the `.fit()` method of the `StandardScaler' object. After we create the scaler object, we can then use its `transform` method to transform the X data set, and store it in a new variable called `X_scaled`. 
+The first line creates a scaler object for our X data set by utilizing the `.fit()` method of the `StandardScaler` object. After we create the scaler object, we can then use its `transform` method to transform the X data set, and store it in a new variable called `X_scaled`. 
 
 ### Choosing the parameters
 
